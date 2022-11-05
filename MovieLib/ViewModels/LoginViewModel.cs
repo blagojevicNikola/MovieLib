@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieLib.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,13 +13,16 @@ namespace MovieLib
         public string? Username { get; set; }    
         public string? Password { get; set; }
         public ICommand LoginCommand { get; set; }
-        public ICommand RegisterCommand { get; set; }   
-
+       
         public LoginViewModel()
         {
             LoginCommand = new RelyCommand(() => { });
-            RegisterCommand = new RelyCommand(() => { });
         }
 
+        public void login()
+        {
+            SecondWindow win = new SecondWindow();
+
+        }
     }
 }

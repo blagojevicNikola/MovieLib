@@ -60,3 +60,5 @@ C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\Log
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\LoginView.baml
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\RegisterView.g.cs
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\RegisterView.baml
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\SecondWindow.g.cs
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\SecondWindow.baml
