@@ -1,9 +1,14 @@
 ﻿<Application x:Class="MovieLib.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:MovieLib"
+             xmlns:local="clr-namespace:MovieLib" xmlns:views="clr-namespace:MovieLib.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type local:LoginViewModel}">
+            <views:LoginView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:RegisterViewModel}">
+            <views:RegisterView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

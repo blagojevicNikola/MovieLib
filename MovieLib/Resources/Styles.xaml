@@ -3,8 +3,8 @@
 
 
     <Style x:Key="CloseWindowButtonStyle" TargetType="Button">
-        <Setter Property="Height" Value="17"/>
-        <Setter Property="Width" Value="17"/>
+        <Setter Property="Height" Value="19"/>
+        <Setter Property="Width" Value="19"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
@@ -13,6 +13,7 @@
                     <Grid>
                         <Border CornerRadius="40"
                                 Background="{TemplateBinding Button.Background}"/>
+                        <ContentPresenter Content="{TemplateBinding Button.Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -81,6 +82,7 @@
                 <Setter Property="CornerRadius" Value="7" />
             </Style>
         </Style.Resources>
+        <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="FontSize" Value="17"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="3,0,0,0"/>

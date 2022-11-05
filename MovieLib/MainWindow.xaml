@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovieLib"
+        xmlns:ic="http://metro.mahapps.com/winfx/xaml/iconpacks" 
+        xmlns:views="clr-namespace:MovieLib.Views"
         mc:Ignorable="d"
         Title="Login" Height="650" Width="1000"
         WindowStyle="None"
@@ -11,73 +13,8 @@
         Background="Transparent"
         MouseDown="Window_MouseDown">
 
-    <Window.Resources>
-        <ResourceDictionary Source="/Resources/Styles.xaml"/>
-    </Window.Resources>
-    <Border Background="White"
-            CornerRadius="15">
-        <Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Grid Grid.Column="0"
-                      VerticalAlignment="Center">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBox Height="30"
-                             Width="290"
-                             Style="{StaticResource CredentialsTextBox}"
-                             Grid.Row="0"/>
-                    <TextBox Height="30"
-                             Style="{StaticResource CredentialsTextBox}"
-                             Margin="0,30,0,0"
-                             Width="290"
-                             Grid.Row="1"/>
-                    <Button Margin="0,30,0,0"
-                            Style="{StaticResource LoginButtonStyle}"
-                            Grid.Row="2"/>
-                    
-                    <Grid Grid.Row="3" HorizontalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Button Margin="0,10,0,0"
-                            Style="{StaticResource RegisterButtonStyle}"
-                            />
-                    </Grid>
-                    
-                </Grid>
-                <Border CornerRadius="0,15,15,0"
-                    Grid.Column="1"
-                    Background="LightBlue"></Border>
-            </Grid>
-
-            <Grid VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Label Content="Login"
-                       FontSize="18"
-                       FontWeight="Medium"
-                       Grid.Column="0"
-                       Padding="0"
-                       HorizontalAlignment="Left"
-                       Margin="5,3,3,3"/>
-
-                <Button Content=""
-                        Style="{StaticResource CloseWindowButtonStyle}"
-                        Grid.Column="1"
-                        Margin="3,3,5,3"/>
-            </Grid>
-        </Grid>
-    </Border>
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <UserControl Content="{Binding CurrentViewModel, Mode=TwoWay}"/>
 </Window>
