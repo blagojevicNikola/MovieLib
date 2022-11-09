@@ -7,14 +7,27 @@
         xmlns:ic="http://metro.mahapps.com/winfx/xaml/iconpacks" 
         xmlns:views="clr-namespace:MovieLib.Views"
         mc:Ignorable="d"
-        Title="Login" Height="650" Width="1000"
+        Title="Login" Height="850" Width="1200"
         WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         Background="Transparent"
         MouseDown="Window_MouseDown">
 
-    <Window.DataContext>
-        <local:MainWindowViewModel/>
-    </Window.DataContext>
-    <UserControl Content="{Binding CurrentViewModel, Mode=TwoWay}"/>
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/Styles.xaml"/>
+    </Window.Resources>
+
+    <Grid>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+        <Button HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Click="Button_Click_1"  
+                    Margin="0,6,7,2"
+                    Style="{StaticResource CloseWindowButtonStyle}">
+            <ic:PackIconMaterial Kind="Close" Height="12" Width="12"/>
+        </Button>
+    </Grid>
+    
 </Window>

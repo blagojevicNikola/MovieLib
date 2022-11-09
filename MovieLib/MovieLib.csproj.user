@@ -13,7 +13,7 @@
     <Compile Update="Views\RegisterView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\SecondWindow.xaml.cs">
+    <Compile Update="Views\UserMainView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -30,7 +30,7 @@
     <Page Update="Views\RegisterView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\SecondWindow.xaml">
+    <Page Update="Views\UserMainView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

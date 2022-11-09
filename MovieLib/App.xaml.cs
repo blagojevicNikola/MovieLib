@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieLib.Views;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,17 @@ namespace MovieLib
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            NavigationStore navigationStore = new();
+            navigationStore.CurrentViewModel = new LoginViewModel(navigationStore);
+            MainWindow win = new()
+            {
+                DataContext = new MainWindowViewModel(navigationStore)
+            };
+            win.Show();
+            base.OnStartup(e);
+        }
+
     }
 }

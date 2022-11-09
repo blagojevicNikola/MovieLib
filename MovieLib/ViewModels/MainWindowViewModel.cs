@@ -10,23 +10,22 @@ namespace MovieLib
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        private BaseViewModel _currentViewModel = new LoginViewModel();
-        public BaseViewModel CurrentViewModel { 
-            get { return _currentViewModel; } 
-            set { _currentViewModel = value; NotifyPropertyChanged("CurrentViewModel"); } 
-        }
+        private readonly NavigationStore _navigationStore;
 
-        public ICommand RegisterCommand { get; set; }  
-        public ICommand BackToLoginCommand { get; set; }
+        public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
         public ICommand CloseCommand { get; set; }
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(NavigationStore navigationStore)
         {
-            RegisterCommand = new RelyCommand(() => { CurrentViewModel = new RegisterViewModel(); });
-            BackToLoginCommand = new RelyCommand(() => { CurrentViewModel = new LoginViewModel(); });
+            _navigationStore = navigationStore;
+            _navigationStore.CurrentViewModelChanged += CurrentPropertyChanged;
             CloseCommand = new RelyCommand(() => shutdown());
         }
 
+        private void CurrentPropertyChanged()
+        {
+            NotifyPropertyChanged(nameof(CurrentViewModel));
+        }
 
         public void shutdown()
         {
