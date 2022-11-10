@@ -123,10 +123,10 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="LightGray"/>
+                <Setter Property="Background" Value="#989898"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="LightBlue"/>
+                <Setter Property="Background" Value="#c0e3fa"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -160,10 +160,10 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="LightGray"/>
+                <Setter Property="Background" Value="#989898"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="LightBlue"/>
+                <Setter Property="Background" Value="#c0e3fa"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -197,9 +197,80 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="LightGray"/>
+                <Setter Property="Background" Value="#989898"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="#c0e3fa"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="UsersNavigationButtonStyle" TargetType="RadioButton">
+        <Setter Property="Height" Value="65"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid Margin="10,10,10,0">
+                        <Border Background="{TemplateBinding ToggleButton.Background}"
+                                CornerRadius="11"/>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="15,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+                            <ic:PackIconMaterial Kind="AccountCircleOutline" Height="30" Width="30"
+                                                 VerticalAlignment="Center"/>
+                            <Label Content="Users" FontSize="24" 
+                                   FontWeight="Light" 
+                                   Margin="10,0,0,0"
+                                   Padding="0"
+                                   VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#989898"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="#c0e3fa"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="AddMovieButtonStyle" TargetType="Button">
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Background" Value="SteelBlue"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Border CornerRadius="50"
+                                Background="{TemplateBinding Button.Background}"/>
+                        <ic:PackIconMaterial Kind="PlusCircleOutline" 
+                                             Height="32" 
+                                             Width="32" 
+                                             Foreground="White"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Content" Value="Login"/>
+        <Setter Property="FontSize" Value="19"/>
+        <Setter Property="FontWeight" Value="ExtraLight"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="LightBlue"/>
             </Trigger>
         </Style.Triggers>

@@ -13,5 +13,8 @@
         <DataTemplate DataType="{x:Type local:UserMainViewModel}">
             <views:UserMainView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type local:AdminMainViewModel}">
+            <views:AdminMainView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

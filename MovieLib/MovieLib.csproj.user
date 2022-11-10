@@ -7,7 +7,25 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Controls\MovieAdminControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\MovieControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\UserAdminControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminMainView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MoviesAdminView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MoviesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\RegisterView.xaml.cs">
@@ -18,13 +36,31 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Controls\MovieAdminControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\MovieControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\UserAdminControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\Styles.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\AdminMainView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MoviesAdminView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MoviesView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\RegisterView.xaml">

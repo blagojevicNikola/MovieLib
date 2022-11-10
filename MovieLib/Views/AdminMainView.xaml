@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="MovieLib.Views.AdminMainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieLib.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="850" d:DesignWidth="1200">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Resources/Styles.xaml"/>
+    </UserControl.Resources>
+    <Border Background="Transparent"
+            BorderBrush="#c0e3fa"
+            BorderThickness="1"
+            CornerRadius="14">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="270"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0"
+                    Background="#8e8e8e"
+                    CornerRadius="14,0,0,14">
+                <Grid Margin="0,15,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0"
+                                Orientation="Horizontal">
+                        <Ellipse Height="50" Width="50"
+                                 Margin="15,5,15,5"
+                                 Fill="White"/>
+                        <TextBlock Text="Username"
+                                   VerticalAlignment="Center"
+                                   FontSize="18"/>
+                    </StackPanel>
+                    <RadioButton Grid.Row="1"
+                                 Margin="0,15,0,0"
+                                 IsChecked="True"
+                                 GroupName="g1"
+                                 Style="{StaticResource MoviesNavigationButtonStyle}"/>
+                    <RadioButton Grid.Row="2"
+                                 GroupName="g1"
+                                 Margin="0,0,0,0"
+                                 Style="{StaticResource UsersNavigationButtonStyle}"/>
+                    <RadioButton Grid.Row="3"
+                                 GroupName="g1"
+                                 Margin="0,0,0,0"
+                                 Style="{StaticResource SettingsNavigationButtonStyle}"/>
+
+                </Grid>
+            </Border>
+            <Border Grid.Column="1"
+                    Background="#606060"
+                    CornerRadius="0,14,14,0">
+
+                <ContentControl Grid.Row="3"
+                                    Margin="10,20,10,10"/>
+
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>
