@@ -20,7 +20,11 @@ namespace MovieLib
         public LoginViewModel(NavigationStore navigationStore)
         {
             RegisterCommand = new NavigateCommand<RegisterViewModel>(navigationStore, () => new RegisterViewModel(navigationStore));
-            ToUserViewCommand = new NavigateCommand<UserMainViewModel>(navigationStore, () => new UserMainViewModel(navigationStore));
+            ToUserViewCommand = new NavigateCommand<AdminMainViewModel>(navigationStore, () => {
+                NavigationStore navigationStore1 = new();
+                navigationStore1.CurrentViewModel = new MoviesAdminViewModel(navigationStore1);
+                return new AdminMainViewModel(navigationStore1);
+            });
             LoginCommand = new RelyCommand(() => ToUserViewCommand.Execute(null));
         }
 

@@ -74,3 +74,5 @@ C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\refint\Mo
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\MovieLib.pdb
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\MovieLib.genruntimeconfig.cache
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\ref\MovieLib.dll
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\UsersAdminView.g.cs
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\UsersAdminView.baml

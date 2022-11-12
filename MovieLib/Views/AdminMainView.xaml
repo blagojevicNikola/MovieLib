@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MovieLib.Views"
+             xmlns:local="clr-namespace:MovieLib.Views" xmlns:movielib="clr-namespace:MovieLib" d:DataContext="{d:DesignInstance Type=movielib:AdminMainViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="1200">
     <UserControl.Resources>
@@ -41,9 +41,11 @@
                                  Margin="0,15,0,0"
                                  IsChecked="True"
                                  GroupName="g1"
+                                 Command="{Binding ToMoviesCommand}"
                                  Style="{StaticResource MoviesNavigationButtonStyle}"/>
                     <RadioButton Grid.Row="2"
                                  GroupName="g1"
+                                 Command="{Binding ToUsersCommand}"
                                  Margin="0,0,0,0"
                                  Style="{StaticResource UsersNavigationButtonStyle}"/>
                     <RadioButton Grid.Row="3"
@@ -58,7 +60,8 @@
                     CornerRadius="0,14,14,0">
 
                 <ContentControl Grid.Row="3"
-                                    Margin="10,20,10,10"/>
+                                Margin="10,20,10,10"
+                                Content="{Binding CurrentViewModel}"/>
 
             </Border>
         </Grid>

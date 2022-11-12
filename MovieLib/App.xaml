@@ -16,5 +16,11 @@
         <DataTemplate DataType="{x:Type local:AdminMainViewModel}">
             <views:AdminMainView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type local:MoviesAdminViewModel}">
+            <views:MoviesAdminView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:UsersAdminViewModel}">
+            <views:UsersAdminView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

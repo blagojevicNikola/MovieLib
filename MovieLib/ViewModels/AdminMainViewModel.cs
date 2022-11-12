@@ -1,4 +1,5 @@
-﻿using MovieLib.Models;
+﻿using MovieLib.Commands;
+using MovieLib.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,25 +12,26 @@ namespace MovieLib
 {
     public class AdminMainViewModel : BaseViewModel
     {
-        public BaseViewModel _currentViewModel;
-        public BaseViewModel CurrentViewModel
-        {
-            get { return _currentViewModel; }
-            set
-            {
-                _currentViewModel = value;
-                NotifyPropertyChanged("CurrentViewModel");
-            }
-        }
+        private readonly NavigationStore _navigationStore;
 
-        ICommand ToMoviesCommand { get; set; }
-        ICommand ToUsersCommand { get; set; }
-        ICommand ToSettingsCommand { get; set; }
+        public BaseViewModel _currentViewModel;
+        public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
+        
+        public ICommand ToMoviesCommand { get; set; }
+        public ICommand ToUsersCommand { get; set; }
+        public ICommand ToSettingsCommand { get; set; }
         public AdminMainViewModel(NavigationStore navigationStore)
         {
-            ToMoviesCommand = new RelyCommand(() => { });
-            ToUsersCommand = new RelyCommand(() => { });
+            _navigationStore = navigationStore;
+            _navigationStore.CurrentViewModelChanged += CurrentPropertyChanged;
+            ToMoviesCommand = new NavigateCommand<MoviesAdminViewModel>(navigationStore, () => new MoviesAdminViewModel(navigationStore));
+            ToUsersCommand = new NavigateCommand<UsersAdminViewModel>(navigationStore, () => new UsersAdminViewModel());
             ToSettingsCommand = new RelyCommand(() => { });
+        }
+
+        private void CurrentPropertyChanged()
+        {
+            NotifyPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }
