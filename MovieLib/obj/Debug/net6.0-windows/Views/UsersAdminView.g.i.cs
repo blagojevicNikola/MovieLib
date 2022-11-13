@@ -55,7 +55,7 @@ namespace MovieLib.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MovieLib;V1.0.0.0;component/views/usersadminview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MovieLib;component/views/usersadminview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\UsersAdminView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

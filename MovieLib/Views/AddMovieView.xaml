@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MovieLib.Views"
+             xmlns:local="clr-namespace:MovieLib.Views" xmlns:movielib="clr-namespace:MovieLib" d:DataContext="{d:DesignInstance Type=movielib:AddMovieViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="1050">
     <UserControl.Resources>
@@ -26,8 +26,8 @@
             <StackPanel Orientation="Horizontal"
                         Grid.Column="0"
                         Margin="10,0,0,0">
-                <Button Height="30"
-                        Width="30">
+                <Button Style="{StaticResource BackButtonStyle}"
+                        Command="{Binding BackToMoviesCommand}">
                 </Button>
                 <Label
                    Padding="0"
@@ -39,44 +39,88 @@
             </StackPanel>
             
         </Grid>
-
         <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <TextBox Grid.Row="0"
-                     Width="320"
+                <TextBox Grid.Row="0"
+                     Style="{StaticResource MovieTitleTextBox}"
+                     MaxWidth="410"
+                     MinWidth="400"
                      HorizontalAlignment="Left"
-                     Margin="9,30,0,0"
-                     FontSize="16">
-            </TextBox>
+                     Margin="9,50,0,0">
+                </TextBox>
 
-            <TextBox Grid.Row="1"
-                     Width="320"
+                <TextBox Grid.Row="1"
+                     MaxWidth="410"
+                     MinWidth="400"
+                     Style="{StaticResource MovieDirectorTextBox}"
                      HorizontalAlignment="Left"
-                     Margin="9,30,0,0"
-                     FontSize="16">
-            </TextBox>
+                     Margin="9,50,0,0">
+                </TextBox>
 
-            <TextBox Grid.Row="2"
-                     Width="320"
+                <TextBox Grid.Row="2"
+                     MaxWidth="410"
+                     MinWidth="400"
+                     Style="{StaticResource MoviePublishedTextBox}"
                      HorizontalAlignment="Left"
-                     Margin="9,30,0,0"
-                     FontSize="16">
-            </TextBox>
+                     Margin="9,50,0,0">
+                </TextBox>
 
-            <TextBox Grid.Row="3"
+                <TextBox Grid.Row="3"
+                     TextWrapping="Wrap"
+                     Style="{StaticResource MovieDescriptionTextBox}"
                      Height="200"
-                     Width="520"
-                     HorizontalAlignment="Left"
-                     Margin="9,30,0,0"
-                     FontSize="16">
-            </TextBox>
+                     HorizontalAlignment="Stretch"
+                     Margin="9,50,0,0">
+                </TextBox>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="1"
+                            Margin="60,50,60,60"
+                            HorizontalAlignment="Center">
+                    <Button Height="20"
+                        Width="20"
+                        Margin="20,9,9,9"
+                        HorizontalAlignment="Left"/>
+                    <Image 
+                       Height="390"
+                       Width="350"
+                       HorizontalAlignment="Center"
+                       >
+                        <Image.Source>
+                            <BitmapImage DecodePixelWidth="350"
+                                         UriSource="C:\Users\nikol\Desktop\Capture.png"/>
+                        </Image.Source>
+                    </Image>
+                </StackPanel>
+
+                <Button Grid.Row="2"
+                        Style="{StaticResource NewMovieButtonStyle}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="9"/>
+
+            </Grid>
         </Grid>
+        
 
         
     </Grid>

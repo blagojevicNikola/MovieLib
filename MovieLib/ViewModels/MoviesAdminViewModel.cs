@@ -1,4 +1,5 @@
-﻿using MovieLib.Models;
+﻿using MovieLib.Commands;
+using MovieLib.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,10 +16,11 @@ namespace MovieLib
         private ObservableCollection<Movie> _movies = new ObservableCollection<Movie>();
         public ObservableCollection<Movie> Movies { get { return _movies; } set { _movies = value; NotifyPropertyChanged("Movies"); } }
 
-        ICommand ToAddMovieCommand { get; set; }
+        public ICommand ToAddMovieCommand { get; set; }
         public MoviesAdminViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
+            ToAddMovieCommand = new NavigateCommand<AddMovieViewModel>(navigationStore, () => new AddMovieViewModel(navigationStore));
         }
     }
 }

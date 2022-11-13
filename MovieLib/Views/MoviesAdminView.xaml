@@ -32,6 +32,7 @@
 
             <Button Style="{StaticResource AddMovieButtonStyle}"
                     Grid.Column="1"
+                    Command="{Binding ToAddMovieCommand}"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"/>
         </Grid>

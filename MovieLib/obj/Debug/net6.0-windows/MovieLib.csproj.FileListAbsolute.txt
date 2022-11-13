@@ -76,3 +76,5 @@ C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\MovieLib.
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\ref\MovieLib.dll
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\UsersAdminView.g.cs
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\UsersAdminView.baml
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\AddMovieView.g.cs
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\AddMovieView.baml

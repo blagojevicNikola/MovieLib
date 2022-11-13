@@ -22,5 +22,8 @@
         <DataTemplate DataType="{x:Type local:UsersAdminViewModel}">
             <views:UsersAdminView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type local:AddMovieViewModel}">
+            <views:AddMovieView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

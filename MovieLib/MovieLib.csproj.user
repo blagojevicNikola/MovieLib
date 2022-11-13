@@ -16,6 +16,9 @@
     <Compile Update="Controls\UserAdminControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\AddMovieView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AdminMainView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -52,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddMovieView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\AdminMainView.xaml">
