@@ -93,24 +93,33 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <StackPanel Grid.Row="1"
-                            Margin="60,50,60,60"
+                <StackPanel Grid.Row="0"
+                            Margin="60,30,60,20"
                             HorizontalAlignment="Center">
-                    <Button Height="20"
-                        Width="20"
-                        Margin="20,9,9,9"
+                    <Button Style="{StaticResource SearchButtonStyle}"
+                        Margin="10,9,9,9"
                         HorizontalAlignment="Left"/>
-                    <Image 
+                    <Border BorderBrush="LightBlue"
+                            BorderThickness="2">
+                        <Image 
                        Height="390"
                        Width="350"
-                       HorizontalAlignment="Center"
-                       >
-                        <Image.Source>
-                            <BitmapImage DecodePixelWidth="350"
+                       HorizontalAlignment="Center">
+                            <Image.Source>
+                                <BitmapImage DecodePixelWidth="350"
                                          UriSource="C:\Users\nikol\Desktop\Capture.png"/>
-                        </Image.Source>
-                    </Image>
+                            </Image.Source>
+                        </Image>
+                    </Border>
                 </StackPanel>
+
+                <TextBlock Grid.Row="1"
+                           Margin="5"
+                           TextAlignment="Center"
+                           Text="Path"
+                           FontSize="15"
+                           Foreground="White"
+                           TextWrapping="Wrap"/>
 
                 <Button Grid.Row="2"
                         Style="{StaticResource NewMovieButtonStyle}"

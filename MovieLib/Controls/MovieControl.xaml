@@ -9,6 +9,12 @@
     <Border Height="200"
             CornerRadius="14"
             Background="LightGray">
+        <Border.Effect>
+            <DropShadowEffect Opacity="0.29"
+                              Direction="270"
+                              Color="black"
+                              BlurRadius="7"/>
+        </Border.Effect>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -18,7 +24,9 @@
             <Image Grid.Column="0"
                    Margin="20,0,0,0"
                    Height="190"
-                   Width="160"/>
+                   Width="160">
+                
+            </Image>
 
             <Grid Grid.Column="1"
                   Margin="10,0,0,0">
@@ -29,10 +37,22 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <TextBlock Text="Movie Title"
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                           Text="Movie Title"
                            FontSize="20"
+                           Foreground="CadetBlue"
                            Margin="5,5,5,0"
                            FontWeight="SemiBold"/>
+
+                    <TextBlock Grid.Column="1"
+                               Margin="0,0,8,0"
+                             Text="10.0"
+                             FontSize="18"
+                             FontWeight="Bold"/>
                 </Grid>
                 <TextBlock Text="Director name"
                            Grid.Row="1"

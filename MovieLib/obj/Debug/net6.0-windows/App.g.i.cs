@@ -48,13 +48,13 @@ namespace MovieLib {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.10.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.0.0")]
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MovieLib;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MovieLib;V1.0.0.0;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -68,7 +68,7 @@ namespace MovieLib {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.10.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.0.0")]
         public static void Main() {
             MovieLib.App app = new MovieLib.App();
             app.InitializeComponent();

@@ -8,16 +8,24 @@ namespace MovieLib.Models
 {
     public class Movie
     {
-        public int Id { get; set; } 
+        public int? Id { get; set; } 
         public string Title { get; set; }
         public string Director { get; set; }
         public string Description { get; set; }
         public DateTime Published { get; set; }
         public string? Uri { get; set; }
+        public decimal Rating { get; set; }
 
-        public Movie()
+        public Movie(int? id, string title, string director, string description, DateTime published, string? uri, decimal rating)
         {
-
+            Rating = rating;    
+            Id = id;
+            Title = title;
+            Director = director;
+            Description = description;
+            Published = published;
+            Uri = uri;
         }
+
     }
 }
