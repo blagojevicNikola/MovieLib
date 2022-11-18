@@ -30,11 +30,13 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <TextBox Height="30"
+                             Text="{Binding Username}"
                              Width="290"
                              Style="{StaticResource CredentialsTextBox}"
                              Grid.Row="0"/>
-                    <TextBox Height="30"
-                             Style="{StaticResource CredentialsTextBox}"
+                    <PasswordBox Height="30"
+                             PasswordChanged="PasswordBox_PasswordChanged"
+                             Style="{StaticResource PasswordTextBox}"
                              Margin="0,30,0,0"
                              Width="290"
                              Grid.Row="1"/>

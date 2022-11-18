@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace MovieLib.Repositories.Impl
 {
-    public class MovieRepository : IMovieRepository
+    public class MovieRepository : RepositoryBase,IMovieRepository
     {
         public Movie? Create(Movie movie, int adminId)
         {
-            using (var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MovieLibDb"].ConnectionString))
+            using (var conn = this.GetConnection())
             {
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = conn;
@@ -26,8 +26,8 @@ namespace MovieLib.Repositories.Impl
                 command.Parameters.AddWithValue("@public_date", movie.Published);
                 command.Parameters.AddWithValue("@image_uri", movie.Uri);
                 command.Parameters.AddWithValue("@admin_id", adminId);
-                MySqlDataReader reader = command.ExecuteReader();
                 conn.Open();
+                MySqlDataReader reader = command.ExecuteReader();
                 Movie? result = null;
                 if (reader.Read())
                 {
@@ -39,18 +39,27 @@ namespace MovieLib.Repositories.Impl
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var conn = this.GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = conn;
+                command.CommandText = "delete from movie where id=@id";
+                command.Parameters.AddWithValue("@id", id);
+                conn.Open();
+                command.ExecuteNonQuery();
+                return true;
+            }
         }
 
         public IEnumerable<Movie> GetAll()
         {
-            using(var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MovieLibDb"].ConnectionString))
+            using(var conn = this.GetConnection())
             {
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = conn;
                 command.CommandText = "select * from movie_info";
-                MySqlDataReader reader = command.ExecuteReader();
                 conn.Open();
+                MySqlDataReader reader = command.ExecuteReader();
                 ObservableCollection<Movie> result = new ObservableCollection<Movie>();
                 while(reader.Read())
                 {
@@ -62,14 +71,14 @@ namespace MovieLib.Repositories.Impl
 
         public Movie? GetById(int id)
         {
-            using (var conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MovieLibDb"].ConnectionString))
+            using (var conn = this.GetConnection())
             {
                 MySqlCommand command = new MySqlCommand(); 
                 command.Connection = conn;
                 command.CommandText = "select * from movie_info where id=@id";
                 command.Parameters.AddWithValue("@id", id);
-                MySqlDataReader reader = command.ExecuteReader();
                 conn.Open();
+                MySqlDataReader reader = command.ExecuteReader();
                 Movie? result = null;
                 if(reader.Read())
                 { 
@@ -81,7 +90,21 @@ namespace MovieLib.Repositories.Impl
 
         public bool Update(Movie movie)
         {
-            throw new NotImplementedException();
+            using (var conn = this.GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = conn;
+                command.CommandText = "update movie set Title=@title, Director=@director, Description=@description, PublishDate=@publish_date, ImageUri=@image_uri where id=@id";
+                command.Parameters.AddWithValue("@title", movie.Title);
+                command.Parameters.AddWithValue("@director", movie.Director);
+                command.Parameters.AddWithValue("@description", movie.Description);
+                command.Parameters.AddWithValue("@public_date", movie.Published);
+                command.Parameters.AddWithValue("@image_uri", movie.Uri);
+                command.Parameters.AddWithValue("@id", movie.Id);
+                conn.Open();
+                command.ExecuteNonQuery();
+                return true;
+            }
         }
     }
 }

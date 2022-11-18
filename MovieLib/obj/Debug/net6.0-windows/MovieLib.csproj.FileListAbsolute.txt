@@ -78,3 +78,13 @@ C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\Use
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\UsersAdminView.baml
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\AddMovieView.g.cs
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\AddMovieView.baml
+C:\Users\nikol\source\repos\MovieLib\MovieLib\bin\Debug\net6.0-windows\MovieLib.dll.config
+C:\Users\nikol\source\repos\MovieLib\MovieLib\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\nikol\source\repos\MovieLib\MovieLib\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\nikol\source\repos\MovieLib\MovieLib\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\nikol\source\repos\MovieLib\MovieLib\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\nikol\source\repos\MovieLib\MovieLib\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\nikol\source\repos\MovieLib\MovieLib\bin\Debug\net6.0-windows\ZstdNet.dll
+C:\Users\nikol\source\repos\MovieLib\MovieLib\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\PlaylistsView.g.cs
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\PlaylistsView.baml
