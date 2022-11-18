@@ -11,7 +11,7 @@ namespace MovieLib.Repositories.Impl
 {
     public class AuthenticationRepository : RepositoryBase, IAuthenticationRepository
     {
-        public async Task<Admin?> LoginAdmin(string username, string password)
+        public Admin? LoginAdmin(string username, string password)
         {
             using(var conn = this.GetConnection()) {
                 MySqlCommand command = new MySqlCommand();
@@ -20,8 +20,8 @@ namespace MovieLib.Repositories.Impl
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
                 conn.Open();
-                await using var reader = await command.ExecuteReaderAsync();
-                if(await reader.ReadAsync())
+                var reader = command.ExecuteReader();
+                if(reader.Read())
                 {
                     return new Admin(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
                 }
@@ -42,7 +42,7 @@ namespace MovieLib.Repositories.Impl
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    return new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetBoolean(4), reader.GetString(5), reader.GetString(6));
+                    return new User(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7));
                 }
                 return null;
             }
@@ -74,7 +74,7 @@ namespace MovieLib.Repositories.Impl
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    return new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetBoolean(4), reader.GetString(5), reader.GetString(6));
+                    return new User(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7));
                 }
                 return null;
             }
