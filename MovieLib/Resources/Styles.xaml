@@ -527,4 +527,30 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="CrudButtonStyle" TargetType="Button">
+        <Setter Property="Height" Value="26"/>
+        <Setter Property="Width" Value="26"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Border CornerRadius="50"
+                                Background="{TemplateBinding Button.Background}"/>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Button.Content}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+           
+
 </ResourceDictionary>
