@@ -54,6 +54,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBox Grid.Row="0"
+                     Text="{Binding Title,Mode=OneWayToSource}"
                      Style="{StaticResource MovieTitleTextBox}"
                      MaxWidth="410"
                      MinWidth="400"
@@ -62,6 +63,7 @@
                 </TextBox>
 
                 <TextBox Grid.Row="1"
+                     Text="{Binding Director, Mode=OneWayToSource}"
                      MaxWidth="410"
                      MinWidth="400"
                      Style="{StaticResource MovieDirectorTextBox}"
@@ -70,6 +72,7 @@
                 </TextBox>
 
                 <TextBox Grid.Row="2"
+                     Text="{Binding PublishDate, Mode=OneWayToSource}"
                      MaxWidth="410"
                      MinWidth="400"
                      Style="{StaticResource MoviePublishedTextBox}"
@@ -78,6 +81,7 @@
                 </TextBox>
 
                 <TextBox Grid.Row="3"
+                     Text="{Binding Description, Mode=OneWayToSource}"
                      TextWrapping="Wrap"
                      Style="{StaticResource MovieDescriptionTextBox}"
                      Height="200"
@@ -98,31 +102,31 @@
                             HorizontalAlignment="Center">
                     <Button Style="{StaticResource SearchButtonStyle}"
                         Margin="10,9,9,9"
+                        Command="{Binding LoadImageCommand}"
                         HorizontalAlignment="Left"/>
                     <Border BorderBrush="LightBlue"
                             BorderThickness="2">
                         <Image 
-                       Height="390"
-                       Width="350"
-                       HorizontalAlignment="Center">
-                            <Image.Source>
-                                <BitmapImage DecodePixelWidth="350"
-                                         UriSource="C:\Users\nikol\Desktop\Capture.png"/>
-                            </Image.Source>
+                            Height="390"
+                            Width="350"
+                            Source="{Binding Uri,TargetNullValue={x:Null}}"
+                            HorizontalAlignment="Center">
+                            
                         </Image>
                     </Border>
                 </StackPanel>
 
                 <TextBlock Grid.Row="1"
+                           Text="{Binding Uri}"
                            Margin="5"
                            TextAlignment="Center"
-                           Text="Path"
                            FontSize="15"
                            Foreground="White"
                            TextWrapping="Wrap"/>
 
                 <Button Grid.Row="2"
                         Style="{StaticResource NewMovieButtonStyle}"
+                        Command="{Binding AddMovieCommand}"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"
                         Margin="9"/>

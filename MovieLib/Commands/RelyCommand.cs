@@ -10,15 +10,25 @@ namespace MovieLib
     public class RelyCommand : ICommand
     {
         public event EventHandler? CanExecuteChanged;
-        public Action action;
+        private Action action;
+        private Func<bool>? canExecuteAction;
 
         public RelyCommand(Action action)
         {
             this.action = action;
         }
 
+        public RelyCommand(Action action1, Func<bool> action2)
+        {
+            action = action1;
+            canExecuteAction = action2;
+        }
+
         public bool CanExecute(object? parameter)
         {
+            if(canExecuteAction != null) {
+                return canExecuteAction.Invoke();
+            }
             return true;
         }
 

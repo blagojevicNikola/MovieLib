@@ -12,11 +12,11 @@ namespace MovieLib.Models
         public string Title { get; set; }
         public string Director { get; set; }
         public string Description { get; set; }
-        public DateTime Published { get; set; }
+        public DateTime? Published { get; set; }
         public string? Uri { get; set; }
         public decimal Rating { get; set; }
 
-        public Movie(int? id, string title, string director, string description, DateTime published, string? uri, decimal rating)
+        public Movie(int? id, string title, string director, string description, DateTime? published, string? uri, decimal rating)
         {
             Rating = rating;    
             Id = id;

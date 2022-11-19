@@ -23,10 +23,14 @@ namespace MovieLib.Repositories.Impl
                 command.Parameters.AddWithValue("@title", movie.Title);
                 command.Parameters.AddWithValue("@director", movie.Director);
                 command.Parameters.AddWithValue("@description", movie.Description);
-                command.Parameters.AddWithValue("@public_date", movie.Published);
+                command.Parameters.AddWithValue("@publish_date", movie.Published);
                 command.Parameters.AddWithValue("@image_uri", movie.Uri);
                 command.Parameters.AddWithValue("@admin_id", adminId);
                 conn.Open();
+                command.ExecuteNonQuery();
+                command.Parameters.Clear();
+                command.CommandText = "select * from movie_info where id=@id";
+                command.Parameters.AddWithValue("@id", command.LastInsertedId);
                 MySqlDataReader reader = command.ExecuteReader();
                 Movie? result = null;
                 if (reader.Read())
@@ -63,7 +67,12 @@ namespace MovieLib.Repositories.Impl
                 ObservableCollection<Movie> result = new ObservableCollection<Movie>();
                 while(reader.Read())
                 {
-                    result.Add(new Movie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4), reader.GetString(5), reader.GetDecimal(6)));
+                    DateTime? published = null;
+                    if(!reader.IsDBNull(4))
+                    {
+                        published = reader.GetDateTime(4);
+                    }
+                    result.Add(new Movie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), published, reader.GetString(5), reader.GetDecimal(6)));
                 }
                 return result;
             }

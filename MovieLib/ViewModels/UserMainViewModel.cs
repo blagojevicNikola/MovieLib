@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieLib.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace MovieLib
 {
     public class UserMainViewModel : BaseViewModel
     {
+        private User _user;
         public BaseViewModel _currentViewModel;
         public BaseViewModel CurrentViewModel {
             get { return _currentViewModel; }   
@@ -21,11 +23,12 @@ namespace MovieLib
         ICommand ToPlaylistsCommand { get; set; }
         ICommand ToSettingsCommand { get; set; }
 
-        public UserMainViewModel(NavigationStore navigationStore)
+        public UserMainViewModel(NavigationStore navigationStore, User user)
         {
             ToMoviesCommand = new RelyCommand(() => { });
             ToPlaylistsCommand = new RelyCommand(() => { });
             ToSettingsCommand = new RelyCommand(() => { });
+            _user = user;
         }
     }
 }

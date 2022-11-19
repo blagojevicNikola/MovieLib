@@ -33,7 +33,7 @@
                         <Ellipse Height="50" Width="50"
                                  Margin="15,5,15,5"
                                  Fill="White"/>
-                        <TextBlock Text="Username"
+                        <TextBlock Text="{Binding Admin.Username}"
                                    VerticalAlignment="Center"
                                    FontSize="18"/>
                     </StackPanel>
