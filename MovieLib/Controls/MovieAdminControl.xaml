@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieLib.Controls"
-             xmlns:ic="http://metro.mahapps.com/winfx/xaml/iconpacks"
-    mc:Ignorable="d" 
+             xmlns:ic="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:movielib="clr-namespace:MovieLib" d:DataContext="{d:DesignInstance Type=movielib:AdminMovieItemViewModel}"
+             mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1100">
 
     <UserControl.Resources>
@@ -30,7 +30,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0"
-                       Text="1"
+                       Text="{Binding Movie.Id}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="17"
@@ -41,7 +41,7 @@
                        Width="2"/>
             <TextBlock Grid.Column="2"
                        Margin="8,0,0,0"
-                       Text="Movie name"
+                       Text="{Binding Movie.Title}"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="17"
@@ -52,7 +52,7 @@
                        Width="2"/>
             <TextBlock Grid.Column="4"
                        Margin="8,0,0,0"
-                       Text="Director name"
+                       Text="{Binding Movie.Director}"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="17"
@@ -62,7 +62,7 @@
                        Fill="DarkGray"
                        Width="2"/>
             <TextBlock Grid.Column="6"
-                       Text="00/00/2021"
+                       Text="{Binding Movie.Published}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="17"
@@ -72,7 +72,7 @@
                        Fill="DarkGray"
                        Width="2"/>
             <TextBlock Grid.Column="8"
-                       Text="C://asldkfjls/alsdkjf/lsdkfj"
+                       Text="{Binding Movie.Uri}"
                        Margin="8,0,0,0"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"

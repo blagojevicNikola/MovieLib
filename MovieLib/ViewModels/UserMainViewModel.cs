@@ -11,13 +11,9 @@ namespace MovieLib
     public class UserMainViewModel : BaseViewModel
     {
         private User _user;
+        private NavigationStore _navigationStore;
         public BaseViewModel _currentViewModel;
-        public BaseViewModel CurrentViewModel {
-            get { return _currentViewModel; }   
-            set { _currentViewModel = value;
-                NotifyPropertyChanged("CurrentViewModel");
-            }
-        }
+        public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
 
         ICommand ToMoviesCommand { get; set; }
         ICommand ToPlaylistsCommand { get; set; }
@@ -25,6 +21,7 @@ namespace MovieLib
 
         public UserMainViewModel(NavigationStore navigationStore, User user)
         {
+            _navigationStore = navigationStore;
             ToMoviesCommand = new RelyCommand(() => { });
             ToPlaylistsCommand = new RelyCommand(() => { });
             ToSettingsCommand = new RelyCommand(() => { });

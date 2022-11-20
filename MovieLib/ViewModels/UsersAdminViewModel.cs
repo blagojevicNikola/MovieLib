@@ -12,13 +12,17 @@ namespace MovieLib
 {
     public class UsersAdminViewModel : BaseViewModel
     {
-        private ObservableCollection<User> _users;
-        public ObservableCollection<User> Users { get { return _users; } set { _users = value; NotifyPropertyChanged("Users"); } }
+        private ObservableCollection<AdminUserItemViewModel> _users;
+        public ObservableCollection<AdminUserItemViewModel> Users { get { return _users; } set { _users = value; NotifyPropertyChanged("Users"); } }
 
         public UsersAdminViewModel()
         {
             IUserRepository userRep = new UserRepository();
-            _users = (ObservableCollection<User>)userRep.GetAll();
+            _users = new ObservableCollection<AdminUserItemViewModel>();
+            foreach(User u in userRep.GetAll())
+            {
+                _users.Add(new AdminUserItemViewModel(u));
+            }
         }
     }
 }

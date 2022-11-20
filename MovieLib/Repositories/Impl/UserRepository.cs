@@ -38,7 +38,7 @@ namespace MovieLib.Repositories.Impl
                 MySqlDataReader reader = command.ExecuteReader();
                 while(reader.Read())
                 {
-                    result.Add(new User(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7)));
+                    result.Add(new User(reader.GetInt32(0), reader.GetString(3), reader.GetString(4), reader.GetString(1), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7)));
                 }
                 return result;
             }

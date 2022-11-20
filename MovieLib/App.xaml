@@ -25,5 +25,8 @@
         <DataTemplate DataType="{x:Type local:AddMovieViewModel}">
             <views:AddMovieView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type local:MoviesUserViewModel}">
+            <views:MoviesView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

@@ -61,6 +61,7 @@
                     CornerRadius="0,14,14,0">
                 
                     <ContentControl Grid.Row="3"
+                                    Content="{Binding CurrentViewModel}"
                                     Margin="10,20,10,10"/>
 
             </Border>

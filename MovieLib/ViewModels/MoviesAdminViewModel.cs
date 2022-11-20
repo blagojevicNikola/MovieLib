@@ -16,8 +16,8 @@ namespace MovieLib
     {
         private Admin _admin;
         private NavigationStore _navigationStore;
-        private ObservableCollection<Movie> _movies;
-        public ObservableCollection<Movie> Movies { get { return _movies; } set { _movies = value; NotifyPropertyChanged("Movies"); } }
+        private ObservableCollection<AdminMovieItemViewModel> _movies;
+        public ObservableCollection<AdminMovieItemViewModel> Movies { get { return _movies; } set { _movies = value; NotifyPropertyChanged("Movies"); } }
 
         public ICommand ToAddMovieCommand { get; set; }
         public MoviesAdminViewModel(NavigationStore navigationStore, Admin admin)
@@ -26,7 +26,11 @@ namespace MovieLib
             _navigationStore = navigationStore;
             ToAddMovieCommand = new NavigateCommand<AddMovieViewModel>(navigationStore, () => new AddMovieViewModel(navigationStore,admin));
             _admin = admin;
-            _movies = (ObservableCollection<Movie>)movieRep.GetAll();
+            _movies = new ObservableCollection<AdminMovieItemViewModel>();
+            foreach(Movie m in movieRep.GetAll())
+            {
+                _movies.Add(new AdminMovieItemViewModel(m,navigationStore, _movies));
+            }
         }
     }
 }
