@@ -11,7 +11,7 @@ namespace MovieLib.Repositories.Interfaces
     {
         public IEnumerable<Movie> GetAll(); 
         public Movie? GetById(int id);
-        public Movie? Create(Movie movie, int adminId);
+        public Movie? Create(Movie movie, int adminId, IList<MovieType> types);
         public bool Delete(int id);
         public bool Update(Movie movie);
     }

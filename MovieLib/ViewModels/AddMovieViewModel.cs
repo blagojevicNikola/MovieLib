@@ -5,6 +5,7 @@ using MovieLib.Repositories.Impl;
 using MovieLib.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,8 @@ namespace MovieLib
         public string Director { get { return _director; } set { _director = value; NotifyPropertyChanged("Director"); } }
         public string Description { get { return _description; } set { _description = value; NotifyPropertyChanged("Description"); } }
         public string PublishDate { get { return _publishDate; }set { _publishDate = value; NotifyPropertyChanged("PublishedDate"); } }
-        public string? Uri { get { return _uri; } set { _uri = value; NotifyPropertyChanged("Uri"); } } 
+        public string? Uri { get { return _uri; } set { _uri = value; NotifyPropertyChanged("Uri"); } }
+        public ObservableCollection<MovieType> AllTypes { get; set; }
         public ICommand BackToMoviesCommand { get; set; }
         public ICommand LoadImageCommand { get; set; }
         public ICommand AddMovieCommand { get; set; }
@@ -38,6 +40,8 @@ namespace MovieLib
             LoadImageCommand = new RelyCommand(() => loadImage());
             AddMovieCommand = new RelyCommand(() => addMovie());
             _admin = admin;
+            IMovieTypeRepository movieTypeRep = new MovieTypeRepository();
+            AllTypes = (ObservableCollection<MovieType>)movieTypeRep.GetAll();
         }
 
         private void loadImage()
@@ -58,14 +62,16 @@ namespace MovieLib
             }
             Movie newMovie = new Movie(null, Title, Director, Description, publishedTime, Uri, new decimal(0.0));
             IMovieRepository rep = new MovieRepository();
+            List<MovieType> selectedTypes = AllTypes.Where(s => s.Selected == true).ToList();
             if(_admin.Id.HasValue)
             {
                 int adminId = _admin.Id.Value;
-                if(rep.Create(newMovie, adminId) is not null)
+                if(rep.Create(newMovie, adminId, selectedTypes) is not null)
                 {
                     BackToMoviesCommand.Execute(null);
                     return;
                 }
+                else
                 {
                     MessageBox.Show("Error while adding!");
                     return;

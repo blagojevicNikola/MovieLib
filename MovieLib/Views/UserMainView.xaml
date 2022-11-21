@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieLib.Views"
              xmlns:ic="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             xmlns:local1="clr-namespace:MovieLib"
+             xmlns:local1="clr-namespace:MovieLib" d:DataContext="{d:DesignInstance Type=local1:UserMainViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="1200">
 
@@ -36,7 +36,7 @@
                         <Ellipse Height="50" Width="50"
                                  Margin="15,5,15,5"
                                  Fill="White"/>
-                        <TextBlock Text="Username"
+                        <TextBlock Text="{Binding User.Username}"
                                    VerticalAlignment="Center"
                                    FontSize="18"/>
                     </StackPanel>

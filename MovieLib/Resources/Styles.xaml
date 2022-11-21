@@ -551,6 +551,38 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-           
+
+    <Style x:Key="MovieTypeCheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Margin" Value="0,9,9,0"/>
+        <Setter Property="Background" Value="LightGray"/>
+        <Setter Property="IsChecked" Value="{Binding Selected, Mode=TwoWay}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Border CornerRadius="12"
+                                BorderThickness="2"
+                                BorderBrush="White"
+                                Background="{TemplateBinding CheckBox.Background}"/>
+                        <Label Content="{Binding Name}" 
+                               Margin="4" 
+                               Padding="0" 
+                               Foreground="DarkSlateGray"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="LightBlue"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 
 </ResourceDictionary>

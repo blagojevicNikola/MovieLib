@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,16 @@ namespace MovieLib.Repositories.Impl
 {
     public class MovieRepository : RepositoryBase,IMovieRepository
     {
-        public Movie? Create(Movie movie, int adminId)
+        public Movie? Create(Movie movie, int adminId, IList<MovieType> types)
         {
             using (var conn = this.GetConnection())
             {
+                
                 MySqlCommand command = new MySqlCommand();
+                conn.Open();
+                MySqlTransaction transaction = conn.BeginTransaction();
                 command.Connection = conn;
+                command.Transaction = transaction;
                 command.CommandText = "insert into movie(Title, Director, Description, PublishDate, ImageUri, Admin_Person_id) values(@title,@director,@description,@publish_date,@image_uri,@admin_id)";
                 command.Parameters.AddWithValue("@title", movie.Title);
                 command.Parameters.AddWithValue("@director", movie.Director);
@@ -26,18 +31,51 @@ namespace MovieLib.Repositories.Impl
                 command.Parameters.AddWithValue("@publish_date", movie.Published);
                 command.Parameters.AddWithValue("@image_uri", movie.Uri);
                 command.Parameters.AddWithValue("@admin_id", adminId);
-                conn.Open();
-                command.ExecuteNonQuery();
-                command.Parameters.Clear();
-                command.CommandText = "select * from movie_info where id=@id";
-                command.Parameters.AddWithValue("@id", command.LastInsertedId);
-                MySqlDataReader reader = command.ExecuteReader();
-                Movie? result = null;
-                if (reader.Read())
+                MySqlDataReader reader = null ;
+                try
                 {
-                    result = new Movie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4), reader.GetString(5), reader.GetDecimal(6));
+                    command.ExecuteNonQuery();
+                    var lastInsertedId = command.LastInsertedId;
+                    foreach (MovieType t in types)
+                    {
+                        command.Parameters.Clear();
+                        command.CommandText = "insert into movie_of_type values(@type_id, @movie_id)";
+                        command.Parameters.AddWithValue("@movie_id", lastInsertedId);
+                        command.Parameters.AddWithValue("@type_id", t.Id);
+                        command.ExecuteNonQuery();
+                    }
+                    transaction.Commit();
+                    command.Parameters.Clear();
+                    command.CommandText = "select * from movie_info where id=@id";
+                    command.Parameters.AddWithValue("@id", lastInsertedId);
+                    Debug.WriteLine("Ispis... i lastInsertedId={0}", lastInsertedId);
+                    reader = command.ExecuteReader();
+                    Movie? result = null;
+                    if (reader.Read())
+                    {
+                        DateTime? published = null;
+                        string? uri = null;
+                        if (!reader.IsDBNull(4))
+                        {
+                            published = reader.GetDateTime(4);
+                        }
+                        if (!reader.IsDBNull(5))
+                        {
+                            uri = reader.GetString(5);
+                        }
+                        result = new Movie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), published, uri, reader.GetDecimal(6));
+                    }
+                    reader.Close();
+                    return result;
+                }catch(MySqlException e)
+                {
+                    if(reader != null)
+                    {
+                        reader.Close();
+                    }
+                    transaction.Rollback();
+                    throw e;
                 }
-                return result;
             }
         }
 
@@ -68,11 +106,16 @@ namespace MovieLib.Repositories.Impl
                 while(reader.Read())
                 {
                     DateTime? published = null;
+                    string? uri = null;
                     if(!reader.IsDBNull(4))
                     {
                         published = reader.GetDateTime(4);
                     }
-                    result.Add(new Movie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), published, reader.GetString(5), reader.GetDecimal(6)));
+                    if(!reader.IsDBNull(5))
+                    {
+                        uri = reader.GetString(5);
+                    }
+                    result.Add(new Movie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), published, uri, reader.GetDecimal(6)));
                 }
                 return result;
             }

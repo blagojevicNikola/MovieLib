@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\nikol\source\repos\MovieLib\MovieLib\App.xaml
 141432426287
 
-431595138749
+46730917446
 234-398359361
 Controls\MovieAdminControl.xaml;Controls\MovieControl.xaml;Controls\UserAdminControl.xaml;MainWindow.xaml;Resources\Styles.xaml;Views\AddMovieView.xaml;Views\AdminMainView.xaml;Views\LoginView.xaml;Views\MoviesAdminView.xaml;Views\MoviesView.xaml;Views\PlaylistsView.xaml;Views\RegisterView.xaml;Views\UserMainView.xaml;Views\UsersAdminView.xaml;
 
-True
+False
 

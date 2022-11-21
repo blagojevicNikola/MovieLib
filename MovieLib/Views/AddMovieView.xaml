@@ -88,6 +88,21 @@
                      HorizontalAlignment="Stretch"
                      Margin="9,50,0,0">
                 </TextBox>
+
+                <ItemsControl Grid.Row="4"
+                              Margin="9"
+                              ItemsSource="{Binding AllTypes}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Style="{StaticResource MovieTypeCheckBoxStyle}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
             </Grid>
 
             <Grid Grid.Column="1">

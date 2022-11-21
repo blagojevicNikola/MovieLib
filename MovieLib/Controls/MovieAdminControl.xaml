@@ -13,7 +13,8 @@
     </UserControl.Resources>
     <Border Background="LightGray"
             CornerRadius="14"
-            Height="60">
+            Height="60"
+            Margin="0,15,9,0">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.07*"/>
