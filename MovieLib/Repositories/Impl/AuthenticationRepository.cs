@@ -35,14 +35,14 @@ namespace MovieLib.Repositories.Impl
             {
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = conn;
-                command.CommandText = "select * from person p inner join user u on p.id=u.Person_id where Username=@username and Password=@password";
+                command.CommandText = "select * from user_info where Username=@username and Password=@password and Blocked=false";
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
                 conn.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    return new User(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7));
+                    return new User(reader.GetInt32(0), reader.GetString(3), reader.GetString(4), reader.GetString(1), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7));
                 }
                 return null;
             }

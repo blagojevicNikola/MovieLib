@@ -6,70 +6,85 @@
              xmlns:local="clr-namespace:MovieLib.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border Height="200"
+
+    <Button Cursor="Hand">
+        
+        <Button.Template>
+            <ControlTemplate TargetType="{x:Type Button}">
+                <Border Height="200"
+                        Name="buttonBorder"
             CornerRadius="14"
             Background="LightGray"
             Margin="0,16,9,0">
-        <Border.Effect>
-            <DropShadowEffect Opacity="0.29"
+                    <Border.Effect>
+                        <DropShadowEffect Opacity="0.29"
                               Direction="270"
                               Color="black"
                               BlurRadius="7"/>
-        </Border.Effect>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0"
+                        <Image Grid.Column="0"
                    Margin="20,0,0,0"
                    Height="190"
                    Source="{Binding Movie.Uri,TargetNullValue={x:Null}}"
                    Width="160">
-                
-            </Image>
 
-            <Grid Grid.Column="1"
+                        </Image>
+
+                        <Grid Grid.Column="1"
                   Margin="10,0,0,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0"
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
                            Text="{Binding Movie.Title}"
                            FontSize="20"
                            Foreground="CadetBlue"
                            Margin="5,5,5,0"
                            FontWeight="SemiBold"/>
 
-                    <TextBlock Grid.Column="1"
+                                <TextBlock Grid.Column="1"
                                Margin="0,0,8,0"
                              Text="{Binding Movie.Rating}"
                              FontSize="18"
                              FontWeight="Bold"/>
-                </Grid>
-                <TextBlock Text="{Binding Movie.Director}"
+                            </Grid>
+                            <TextBlock Text="{Binding Movie.Director}"
                            Grid.Row="1"
                            Margin="5,0,0,0"
                            FontSize="16"
                            Padding="0"
                            Opacity="0.42"
                            FontWeight="UltraLight"/>
-                <TextBlock Grid.Row="2"
+                            <TextBlock Grid.Row="2"
                            FontSize="15"
                            FontWeight="Light"
                            TextWrapping="Wrap"
                            Margin="5,25,5,5"
                            Text="{Binding Movie.Description}"/>
-            </Grid>
-        </Grid>
-    </Border>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter TargetName="buttonBorder" Property="Background" Value="DarkGray"/>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </Button.Template>
+    </Button>
 </UserControl>
