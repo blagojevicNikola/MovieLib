@@ -13,7 +13,6 @@ namespace MovieLib
     {
         private User _user;
         private NavigationStore _navigationStore;
-        public BaseViewModel _currentViewModel;
         public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
         public User User { get { return _user; } set { _user = value; } }
         public ICommand ToMoviesCommand { get; set; }
@@ -23,10 +22,16 @@ namespace MovieLib
         public UserMainViewModel(NavigationStore navigationStore, User user)
         {
             _navigationStore = navigationStore;
+            _navigationStore.CurrentViewModelChanged += CurrentPropertyChanged;
             ToMoviesCommand = new NavigateCommand<MoviesUserViewModel>(navigationStore, () => new MoviesUserViewModel(navigationStore));
-            ToPlaylistsCommand = new RelyCommand(() => { });
-            ToSettingsCommand = new RelyCommand(() => { });
+            ToPlaylistsCommand = new NavigateCommand<PlaylistViewModel>(navigationStore, () => new PlaylistViewModel(navigationStore));
+            ToSettingsCommand = new NavigateCommand<SettingsViewModel>(navigationStore, () => new SettingsViewModel());
             _user = user;
+        }
+
+        private void CurrentPropertyChanged()
+        {
+            NotifyPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }

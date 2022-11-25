@@ -56,7 +56,7 @@ namespace MovieLib.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MovieLib;component/controls/movieadmincontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MovieLib;V1.0.0.0;component/controls/movieadmincontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\MovieAdminControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

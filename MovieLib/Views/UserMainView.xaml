@@ -42,14 +42,17 @@
                     </StackPanel>
                     <RadioButton Grid.Row="1"
                                  Margin="0,15,0,0"
+                                 Command="{Binding ToMoviesCommand}"
                                  IsChecked="True"
                                  GroupName="g1"
                                  Style="{StaticResource MoviesNavigationButtonStyle}"/>
                     <RadioButton Grid.Row="2"
+                                 Command="{Binding ToPlaylistsCommand}"
                                  GroupName="g1"
                                  Margin="0,0,0,0"
                                  Style="{StaticResource PlaylistNavigationButtonStyle}"/>
                     <RadioButton Grid.Row="3"
+                                 Command="{Binding ToSettingsCommand}"
                                  GroupName="g1"
                                  Margin="0,0,0,0"
                                  Style="{StaticResource SettingsNavigationButtonStyle}"/>

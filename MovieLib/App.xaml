@@ -28,5 +28,11 @@
         <DataTemplate DataType="{x:Type local:MoviesUserViewModel}">
             <views:MoviesView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type local:PlaylistViewModel}">
+            <views:PlaylistsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:SettingsViewModel}">
+            <views:SettingsView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>
