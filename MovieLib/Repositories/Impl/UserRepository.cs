@@ -12,6 +12,21 @@ namespace MovieLib.Repositories.Impl
 {
     public class UserRepository : RepositoryBase, IUserRepository
     {
+        public bool AddMovieToPlaylist(Movie movie, User user)
+        {
+            using (var conn = this.GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = conn;
+                command.CommandText = "insert into user_has_in_playlist values(@user_id, @movie_id)";
+                command.Parameters.AddWithValue("@movie_id", movie.Id);
+                command.Parameters.AddWithValue("@user_id", user.Id);
+                conn.Open();
+                command.ExecuteNonQuery();
+                return true;
+            }
+        }
+
         public bool BlockUser(int id)
         {
             using (var conn = this.GetConnection())
@@ -41,6 +56,20 @@ namespace MovieLib.Repositories.Impl
                     result.Add(new User(reader.GetInt32(0), reader.GetString(3), reader.GetString(4), reader.GetString(1), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7)));
                 }
                 return result;
+            }
+        }
+
+        public bool UnblockUser(int id)
+        {
+            using (var conn = this.GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = conn;
+                command.CommandText = "update user set Blocked=false where Person_id=@id";
+                command.Parameters.AddWithValue("@id", id);
+                conn.Open();
+                command.ExecuteNonQuery();
+                return true;
             }
         }
     }

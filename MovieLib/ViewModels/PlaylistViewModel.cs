@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieLib.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,10 @@ namespace MovieLib
 {
     public class PlaylistViewModel : BaseViewModel
     {
-
-        public PlaylistViewModel(NavigationStore navigationStore) { }
+        private User _user;
+        public PlaylistViewModel(NavigationStore navigationStore, User user) 
+        {
+            _user = user;
+        }
     }
 }

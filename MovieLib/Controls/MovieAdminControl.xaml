@@ -31,7 +31,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0"
-                       Text="{Binding Movie.Id}"
+                       Text="{Binding Id}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="17"
@@ -42,7 +42,7 @@
                        Width="2"/>
             <TextBlock Grid.Column="2"
                        Margin="8,0,0,0"
-                       Text="{Binding Movie.Title}"
+                       Text="{Binding Title}"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="17"
@@ -53,7 +53,7 @@
                        Width="2"/>
             <TextBlock Grid.Column="4"
                        Margin="8,0,0,0"
-                       Text="{Binding Movie.Director}"
+                       Text="{Binding Director}"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="17"
@@ -63,7 +63,7 @@
                        Fill="DarkGray"
                        Width="2"/>
             <TextBlock Grid.Column="6"
-                       Text="{Binding Movie.Published}"
+                       Text="{Binding Published}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="17"
@@ -73,7 +73,7 @@
                        Fill="DarkGray"
                        Width="2"/>
             <TextBlock Grid.Column="8"
-                       Text="{Binding Movie.Uri}"
+                       Text="{Binding Uri}"
                        Margin="8,0,0,0"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
@@ -97,6 +97,9 @@
                 </Button>
                 <Button Grid.Column="1"
                         Style="{StaticResource CrudButtonStyle}"
+                        Command="{Binding Path=DataContext.DeleteMovieCommand, 
+         RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                    CommandParameter="{Binding}"
                         HorizontalAlignment="Center"
                         Margin="9,0,0,0">
                     <ic:PackIconMaterial Kind="TrashCan" Height="16" Width="16"/>

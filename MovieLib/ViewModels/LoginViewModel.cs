@@ -40,7 +40,7 @@ namespace MovieLib
             ToUserViewCommand = new NavigateCommand<UserMainViewModel>(navigationStore, () =>
             {
                 NavigationStore navigationStore2 = new();
-                navigationStore2.CurrentViewModel = new MoviesUserViewModel(navigationStore2);
+                navigationStore2.CurrentViewModel = new MoviesUserViewModel(navigationStore2, _user);
                 return new UserMainViewModel(navigationStore2, _user);
             });
             LoginCommand = new RelyCommand(() => loggingIn());

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieLib.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,10 @@ namespace MovieLib
 {
     public class SettingsViewModel : BaseViewModel
     {
+        private User _user;
+        public SettingsViewModel(User user)
+        {
+            _user = user;
+        }
     }
 }

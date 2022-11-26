@@ -12,10 +12,19 @@
         <ResourceDictionary Source="/Resources/Styles.xaml"/>
     </UserControl.Resources>
     
-    <Border Background="LightGray"
-            CornerRadius="14"
+    <Border CornerRadius="14"
             Height="60"
             Margin="0,16,9,0">
+        <Border.Style>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="Background" Value="LightGray"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Blocked}" Value="True">
+                        <Setter Property="Background" Value="#9c9c9c"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.1*"/>
@@ -30,7 +39,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0"
-                       Text="{Binding User.Id}"
+                       Text="{Binding Id}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="17"
@@ -41,7 +50,7 @@
                        Width="2"/>
             <TextBlock Grid.Column="2"
                        Margin="8,0,0,0"
-                       Text="{Binding User.Username}"
+                       Text="{Binding Username}"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="17"
@@ -52,7 +61,7 @@
                        Width="2"/>
             <TextBlock Grid.Column="4"
                        Margin="8,0,0,0"
-                       Text="{Binding User.Name}"
+                       Text="{Binding Name}"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="17"
@@ -62,7 +71,7 @@
                        Fill="DarkGray"
                        Width="2"/>
             <TextBlock Grid.Column="6"
-                       Text="{Binding User.Surname}"
+                       Text="{Binding Surname}"
                        Margin="8,0,0,0"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
@@ -74,6 +83,9 @@
                        Width="2"/>
             <Button Grid.Column="8"
                     HorizontalAlignment="Center"
+                    Command="{Binding Path=DataContext.BlockUserCommand, 
+         RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                    CommandParameter="{Binding}"
                     Style="{StaticResource CrudButtonStyle}">
                 <ic:PackIconMaterial Kind="Lock" Height="16" Width="16"/>
             </Button>

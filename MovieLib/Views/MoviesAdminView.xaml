@@ -38,8 +38,47 @@
                     VerticalAlignment="Center"/>
         </Grid>
 
-        <Grid Grid.Row="1">
-            
+        <Grid Grid.Row="1"
+              Margin="10,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.07*"/>
+                <ColumnDefinition Width="0.16*"/>
+                <ColumnDefinition Width="0.16*"/>
+                <ColumnDefinition Width="0.09*"/>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.08*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="ID"
+                   FontSize="18"
+                   Foreground="LightGray"
+                   HorizontalAlignment="Center"
+                   Padding="0"
+                   Grid.Column="0"/>
+            <Label Content="Title"
+                   FontSize="18"
+                   Foreground="LightGray"
+                   HorizontalAlignment="Center"
+                   Padding="0"
+                   Grid.Column="1"/>
+            <Label Content="Director"
+                   Foreground="LightGray"
+                   FontSize="18"
+                   HorizontalAlignment="Center"
+                   Padding="0"
+                   Grid.Column="2"/>
+            <Label Content="Published"
+                   Foreground="LightGray"
+                   FontSize="18"
+                   HorizontalAlignment="Center"
+                   Padding="0"
+                   Grid.Column="3"/>
+            <Label Content="Image URI"
+                   Foreground="LightGray"
+                   FontSize="18"
+                   HorizontalAlignment="Center"
+                   Padding="0"
+                   Grid.Column="4"/>
         </Grid>
 
         <ItemsControl Grid.Row="2"

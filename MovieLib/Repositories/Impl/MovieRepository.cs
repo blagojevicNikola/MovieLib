@@ -121,6 +121,34 @@ namespace MovieLib.Repositories.Impl
             }
         }
 
+        public IEnumerable<Movie> GetAllOutsidePlaylist()
+        {
+            using (var conn = this.GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = conn;
+                command.CommandText = "select * from movie_info";
+                conn.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                ObservableCollection<Movie> result = new ObservableCollection<Movie>();
+                while (reader.Read())
+                {
+                    DateTime? published = null;
+                    string? uri = null;
+                    if (!reader.IsDBNull(4))
+                    {
+                        published = reader.GetDateTime(4);
+                    }
+                    if (!reader.IsDBNull(5))
+                    {
+                        uri = reader.GetString(5);
+                    }
+                    result.Add(new Movie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), published, uri, reader.GetDecimal(6)));
+                }
+                return result;
+            }
+        }
+
         public Movie? GetById(int id)
         {
             using (var conn = this.GetConnection())

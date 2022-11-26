@@ -7,22 +7,42 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MovieLib
 {
     public class UsersAdminViewModel : BaseViewModel
     {
-        private ObservableCollection<AdminUserItemViewModel> _users;
-        public ObservableCollection<AdminUserItemViewModel> Users { get { return _users; } set { _users = value; NotifyPropertyChanged("Users"); } }
+        private ObservableCollection<User> _users;
+        public ObservableCollection<User> Users { get { return _users; } set { _users = value; NotifyPropertyChanged("Users"); } }
+
+        public  ICommand BlockUserCommand { get; set; }
 
         public UsersAdminViewModel()
         {
             IUserRepository userRep = new UserRepository();
-            _users = new ObservableCollection<AdminUserItemViewModel>();
-            foreach(User u in userRep.GetAll())
+            _users = (ObservableCollection<User>)userRep.GetAll();
+            BlockUserCommand = new ParameterCommand<User>(blockUnblockUser);
+        }
+
+        public void blockUnblockUser(User user)
+        {
+            IUserRepository userRep = new UserRepository();
+            if(!user.Blocked)
             {
-                _users.Add(new AdminUserItemViewModel(u));
+                if (userRep.BlockUser(user.Id!.Value))
+                {
+                    user.Blocked = true;
+                }
             }
+            else
+            {
+                if(userRep.UnblockUser(user.Id!.Value))
+                {
+                    user.Blocked= false;
+                }
+            }
+            
         }
     }
 }

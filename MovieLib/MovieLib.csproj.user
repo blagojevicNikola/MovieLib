@@ -22,7 +22,13 @@
     <Compile Update="Views\AdminMainView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\EditMovieView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MoviePageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\MoviesAdminView.xaml.cs">
@@ -69,7 +75,13 @@
     <Page Update="Views\AdminMainView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\EditMovieView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MoviePageView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MoviesAdminView.xaml">

@@ -90,3 +90,7 @@ C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\Pla
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\PlaylistsView.baml
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\SettingsView.g.cs
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\SettingsView.baml
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\MoviePageView.g.cs
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\MoviePageView.baml
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\EditMovieView.g.cs
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\EditMovieView.baml

@@ -82,8 +82,9 @@
                            Text="{Binding Movie.Description}"/>
                             <Button Grid.Row="3"
                                     Style="{StaticResource AddToPlaylistButtonStyle}"
-                                    Height="25"
-                                    Width="25"
+                                    Command="{Binding Path=DataContext.AddToPlaylistCommand, 
+         RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                    CommandParameter="{Binding}"
                                     HorizontalAlignment="Right"
                                     Margin="9"/>
                         </Grid>

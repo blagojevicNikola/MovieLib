@@ -11,7 +11,7 @@ namespace MovieLib
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void NotifyPropertyChanged(String name)
+        public void NotifyPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name)); 
         }

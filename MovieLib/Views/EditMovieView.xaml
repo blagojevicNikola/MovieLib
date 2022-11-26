@@ -1,0 +1,155 @@
+﻿<UserControl x:Class="MovieLib.Views.EditMovieView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieLib.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="850" d:DesignWidth="1050">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Resources/Styles.xaml"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="0"
+                        Margin="10,0,0,0">
+                <Button Style="{StaticResource BackButtonStyle}"
+                        Command="{Binding BackToMoviesCommand}">
+                </Button>
+                <Label
+                   Padding="0"
+                   Margin="15,0,0,0"
+                   Content="New movie"
+                   FontSize="30"
+                   Foreground="White"
+                   FontWeight="SemiBold"/>
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBox Grid.Row="0"
+                     Text="{Binding Title,Mode=OneWayToSource}"
+                     Style="{StaticResource MovieTitleTextBox}"
+                     MaxWidth="410"
+                     MinWidth="400"
+                     HorizontalAlignment="Left"
+                     Margin="9,50,0,0">
+                </TextBox>
+
+                <TextBox Grid.Row="1"
+                     Text="{Binding Director, Mode=OneWayToSource}"
+                     MaxWidth="410"
+                     MinWidth="400"
+                     Style="{StaticResource MovieDirectorTextBox}"
+                     HorizontalAlignment="Left"
+                     Margin="9,50,0,0">
+                </TextBox>
+
+                <TextBox Grid.Row="2"
+                     Text="{Binding PublishDate, Mode=OneWayToSource}"
+                     MaxWidth="410"
+                     MinWidth="400"
+                     Style="{StaticResource MoviePublishedTextBox}"
+                     HorizontalAlignment="Left"
+                     Margin="9,50,0,0">
+                </TextBox>
+
+                <TextBox Grid.Row="3"
+                     Text="{Binding Description, Mode=OneWayToSource}"
+                     TextWrapping="Wrap"
+                     Style="{StaticResource MovieDescriptionTextBox}"
+                     Height="200"
+                     HorizontalAlignment="Stretch"
+                     Margin="9,50,0,0">
+                </TextBox>
+
+                <ItemsControl Grid.Row="4"
+                              Margin="9"
+                              ItemsSource="{Binding AllTypes}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Style="{StaticResource MovieTypeCheckBoxStyle}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0"
+                            Margin="60,30,60,20"
+                            HorizontalAlignment="Center">
+                    <Button Style="{StaticResource SearchButtonStyle}"
+                        Margin="10,9,9,9"
+                        Command="{Binding LoadImageCommand}"
+                        HorizontalAlignment="Left"/>
+                    <Border BorderBrush="LightBlue"
+                            BorderThickness="2">
+                        <Image 
+                            Height="390"
+                            Width="350"
+                            Source="{Binding Uri,TargetNullValue={x:Null}}"
+                            HorizontalAlignment="Center">
+
+                        </Image>
+                    </Border>
+                </StackPanel>
+
+                <TextBlock Grid.Row="1"
+                           Text="{Binding Uri}"
+                           Margin="5"
+                           TextAlignment="Center"
+                           FontSize="15"
+                           Foreground="White"
+                           TextWrapping="Wrap"/>
+
+                <Button Grid.Row="2"
+                        Style="{StaticResource NewMovieButtonStyle}"
+                        Command="{Binding AddMovieCommand}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="9"/>
+
+            </Grid>
+        </Grid>
+
+
+
+    </Grid>
+</UserControl>
