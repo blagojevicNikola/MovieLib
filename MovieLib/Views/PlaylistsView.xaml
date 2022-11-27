@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MovieLib.Views"
+             xmlns:local="clr-namespace:MovieLib.Views" xmlns:movielib="clr-namespace:MovieLib" d:DataContext="{d:DesignInstance Type=movielib:PlaylistViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="1050">
     <Grid>
@@ -16,18 +16,46 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Column="0"
+            <Label Grid.Row="0"
                    Padding="0"
-                   Content="Playlists"
+                   Content="Playlist"
                    FontSize="30"
                    Foreground="White"
                    FontWeight="SemiBold"/>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto"
                           Margin="0,10,0,0"
-                      Grid.Column="0">
-                <ItemsControl >
-                    
+                      Grid.Row="1">
+                <ItemsControl ItemsSource="{Binding Movies}"
+                              Margin="0,20,0,0">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical"
+                                        Margin="20,0,0,20">
+                                <Border BorderBrush="LightBlue"
+                                        BorderThickness="1"
+                                        CornerRadius="10">
+                                    <Image Height="190"
+                                    Source="{Binding Uri,TargetNullValue={x:Null}}"
+                                    Width="160"/>
+                                </Border>
+                                
+                                <TextBlock Width="160"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           Margin="0,20,0,0"
+                                           Text="{Binding Title}"
+                                           FontSize="17"
+                                           FontWeight="SemiBold"
+                                           Foreground="LightGray"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
                 </ItemsControl>
             </ScrollViewer>
         </Grid>

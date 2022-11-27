@@ -14,33 +14,36 @@ namespace MovieLib
 {
     public class MoviesUserViewModel : BaseViewModel
     {
-        private ObservableCollection<MovieViewModel> _movies;
+        private ObservableCollection<Movie> _movies;
         private NavigationStore _navigationStore;
         private User _user;
-        public ObservableCollection<MovieViewModel> Movies { get { return _movies; } set { _movies = value; NotifyPropertyChanged("Movies"); } }
-        public ICommand OpenMovieCommand { get; set; }
+        public ObservableCollection<Movie> Movies { get { return _movies; } set { _movies = value; NotifyPropertyChanged("Movies"); } }
         public ICommand AddToPlaylistCommand { get; set; }
+        public ICommand OnMovieCommand { get; set; }
         public MoviesUserViewModel(NavigationStore navigationStore, User user)
         {
             _navigationStore = navigationStore;
-            _movies = new ObservableCollection<MovieViewModel>();
             IMovieRepository movieRep = new MovieRepository();
-            foreach (Movie m in movieRep.GetAll())
-            {
-                Movies.Add(new MovieViewModel(m));
-            }
+            _movies = (ObservableCollection<Movie>)movieRep.GetAll();
             _user = user;
-            OpenMovieCommand = new NavigateCommand<MoviePageViewModel>(_navigationStore, () => new MoviePageViewModel(_user));
-            AddToPlaylistCommand = new ParameterCommand<MovieViewModel>(addMovieToPlaylist);
+            AddToPlaylistCommand = new ParameterCommand<Movie>(addMovieToPlaylist);
+            OnMovieCommand = new ParameterCommand<Movie>(onMovie);
         }
 
-        public void addMovieToPlaylist(MovieViewModel movie)
+        public void addMovieToPlaylist(Movie movie)
         {
             IUserRepository userRep = new UserRepository();
-            if(userRep.AddMovieToPlaylist(movie.Movie, _user))
+            if(userRep.AddMovieToPlaylist(movie, _user))
             {
                 Movies.Remove(movie);
             }
         }
+
+        public void onMovie(Movie movie)
+        {
+            ICommand OpenMovieCommand = new NavigateCommand<MoviePageViewModel>(_navigationStore, () => new MoviePageViewModel(_navigationStore, _user, movie));
+            OpenMovieCommand.Execute(null);
+        }
+
     }
 }

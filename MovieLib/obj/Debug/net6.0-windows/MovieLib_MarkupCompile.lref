@@ -6,7 +6,9 @@ FC:\Users\nikol\source\repos\MovieLib\MovieLib\Controls\UserAdminControl.xaml;;
 FC:\Users\nikol\source\repos\MovieLib\MovieLib\MainWindow.xaml;;
 FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\AddMovieView.xaml;;
 FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\AdminMainView.xaml;;
+FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\EditMovieView.xaml;;
 FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\LoginView.xaml;;
+FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\MoviePageView.xaml;;
 FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\MoviesAdminView.xaml;;
 FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\MoviesView.xaml;;
 FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\PlaylistsView.xaml;;
@@ -14,6 +16,4 @@ FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\RegisterView.xaml;;
 FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\SettingsView.xaml;;
 FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\UserMainView.xaml;;
 FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\UsersAdminView.xaml;;
-FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\MoviePageView.xaml;;
-FC:\Users\nikol\source\repos\MovieLib\MovieLib\Views\EditMovieView.xaml;;
 

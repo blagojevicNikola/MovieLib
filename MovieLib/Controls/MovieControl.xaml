@@ -11,7 +11,10 @@
         <ResourceDictionary Source="/Resources/Styles.xaml"/>
     </UserControl.Resources>
 
-    <Button Cursor="Hand">
+    <Button Cursor="Hand"
+            Command="{Binding Path=DataContext.OnMovieCommand, 
+         RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+            CommandParameter="{Binding}">
         
         <Button.Template>
             <ControlTemplate TargetType="{x:Type Button}">
@@ -35,7 +38,7 @@
                         <Image Grid.Column="0"
                    Margin="20,0,0,0"
                    Height="190"
-                   Source="{Binding Movie.Uri,TargetNullValue={x:Null}}"
+                   Source="{Binding Uri,TargetNullValue={x:Null}}"
                    Width="160">
 
                         </Image>
@@ -55,7 +58,7 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0"
-                           Text="{Binding Movie.Title}"
+                           Text="{Binding Title}"
                            FontSize="20"
                            Foreground="CadetBlue"
                            Margin="5,5,5,0"
@@ -63,11 +66,11 @@
 
                                 <TextBlock Grid.Column="1"
                                Margin="0,0,8,0"
-                             Text="{Binding Movie.Rating}"
+                             Text="{Binding Rating}"
                              FontSize="18"
                              FontWeight="Bold"/>
                             </Grid>
-                            <TextBlock Text="{Binding Movie.Director}"
+                            <TextBlock Text="{Binding Director}"
                            Grid.Row="1"
                            Margin="5,0,0,0"
                            FontSize="16"
@@ -79,7 +82,7 @@
                            FontWeight="Light"
                            TextWrapping="Wrap"
                            Margin="5,25,5,5"
-                           Text="{Binding Movie.Description}"/>
+                           Text="{Binding Description}"/>
                             <Button Grid.Row="3"
                                     Style="{StaticResource AddToPlaylistButtonStyle}"
                                     Command="{Binding Path=DataContext.AddToPlaylistCommand, 
