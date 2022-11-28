@@ -39,7 +39,7 @@
         </Grid>
 
         <Grid Grid.Row="1"
-              Margin="10,0,10,0">
+              Margin="10,10,10,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.07*"/>
                 <ColumnDefinition Width="0.16*"/>

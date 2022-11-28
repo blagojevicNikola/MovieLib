@@ -33,6 +33,7 @@ namespace MovieLib
             _admin = admin;
             _movies = (ObservableCollection<Movie>)movieRep.GetAll();
             DeleteMovieCommand = new ParameterCommand<Movie>(deleteMovie);
+            EditMovieCommand = new ParameterCommand<Movie>(editMovie);
         }
 
         public void deleteMovie(Movie movie)
@@ -54,6 +55,8 @@ namespace MovieLib
 
         public void editMovie(Movie movie)
         {
+            ICommand ToEditPageCommand = new NavigateCommand<EditMovieViewModel>(_navigationStore, () => new EditMovieViewModel(_navigationStore, _admin, movie));
+            ToEditPageCommand.Execute(null);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace MovieLib
         {
             _user = user;
             IMovieRepository movieRep = new MovieRepository();
-            Movies = (ObservableCollection<Movie>)movieRep.GetAll();
+            Movies = (ObservableCollection<Movie>)movieRep.GetAllInPlaylist(user.Id!.Value);
         }
     }
 }

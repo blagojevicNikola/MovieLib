@@ -92,6 +92,9 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0"
                         Style="{StaticResource CrudButtonStyle}"
+                        Command="{Binding Path=DataContext.EditMovieCommand, 
+         RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                        CommandParameter="{Binding}"
                         HorizontalAlignment="Center">
                     <ic:PackIconMaterial Kind="MovieEdit" Height="16" Width="16"/>
                 </Button>
@@ -99,7 +102,7 @@
                         Style="{StaticResource CrudButtonStyle}"
                         Command="{Binding Path=DataContext.DeleteMovieCommand, 
          RelativeSource={RelativeSource AncestorType=ItemsControl}}"
-                                    CommandParameter="{Binding}"
+                        CommandParameter="{Binding}"
                         HorizontalAlignment="Center"
                         Margin="9,0,0,0">
                     <ic:PackIconMaterial Kind="TrashCan" Height="16" Width="16"/>

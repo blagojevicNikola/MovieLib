@@ -24,7 +24,7 @@ namespace MovieLib
         {
             _navigationStore = navigationStore;
             IMovieRepository movieRep = new MovieRepository();
-            _movies = (ObservableCollection<Movie>)movieRep.GetAll();
+            _movies = (ObservableCollection<Movie>)movieRep.GetAllOutsidePlaylist(user.Id!.Value);
             _user = user;
             AddToPlaylistCommand = new ParameterCommand<Movie>(addMovieToPlaylist);
             OnMovieCommand = new ParameterCommand<Movie>(onMovie);

@@ -30,17 +30,23 @@
                               Margin="0,20,0,0">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical"
-                                        Margin="20,0,0,20">
-                                <Border BorderBrush="LightBlue"
+                            <Button Cursor="Hand">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Border Name="backgroundBorder" Background="{TemplateBinding Button.Background}"
+                                                Margin="20,0,0,20"
+                                                Padding="4"
+                                                CornerRadius="10">
+                                            <StackPanel Orientation="Vertical">
+                                                <Border BorderBrush="LightBlue"
                                         BorderThickness="1"
                                         CornerRadius="10">
-                                    <Image Height="190"
-                                    Source="{Binding Uri,TargetNullValue={x:Null}}"
-                                    Width="160"/>
-                                </Border>
-                                
-                                <TextBlock Width="160"
+                                                    <Image Height="190"
+                                                     Source="{Binding Uri,TargetNullValue={x:Null}}"
+                                                    Width="160"/>
+                                                </Border>
+
+                                                <TextBlock Width="160"
                                            TextAlignment="Center"
                                            HorizontalAlignment="Center"
                                            Margin="0,20,0,0"
@@ -48,7 +54,22 @@
                                            FontSize="17"
                                            FontWeight="SemiBold"
                                            Foreground="LightGray"/>
-                            </StackPanel>
+                                            </StackPanel>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#757474"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
