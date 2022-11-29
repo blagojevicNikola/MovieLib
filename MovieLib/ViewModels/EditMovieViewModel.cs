@@ -4,6 +4,7 @@ using MovieLib.Repositories.Impl;
 using MovieLib.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ namespace MovieLib
         public string Description { get { return _description; } set { _description = value; NotifyPropertyChanged("Description"); } }
         public string PublishDate { get { return _publishDate; } set { _publishDate = value; NotifyPropertyChanged("PublishedDate"); } }
         public string? Uri { get { return _uri; } set { _uri = value; NotifyPropertyChanged("Uri"); } }
+        public ObservableCollection<MovieType> Types { get; set; }
         public ICommand BackToMoviesCommand { get; set; }
         public ICommand UpdateMovieCommand { get; set; }
         public EditMovieViewModel(NavigationStore navigationStore, Admin admin, Movie movie)

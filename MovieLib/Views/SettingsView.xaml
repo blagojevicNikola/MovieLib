@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MovieLib.Views"
+             xmlns:local="clr-namespace:MovieLib.Views" xmlns:movielib="clr-namespace:MovieLib" d:DataContext="{d:DesignInstance Type=movielib:SettingsViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="1050">
     <Grid>
@@ -23,13 +23,42 @@
                    Foreground="White"
                    FontWeight="SemiBold"/>
 
-            <ScrollViewer VerticalScrollBarVisibility="Auto"
-                          Margin="0,10,0,0"
-                      Grid.Column="0">
-                <ItemsControl >
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                </ItemsControl>
-            </ScrollViewer>
+                <Button Margin="3,20,0,3"
+                        Height="40"
+                        Width="85"
+                        Cursor="Hand"
+                        Background="IndianRed"
+                        Command="{Binding LogOutCommand}"
+                        HorizontalAlignment="Right">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Grid>
+                                            <Border Background="{TemplateBinding Button.Background}"
+                                                    CornerRadius="5"/>
+                                            <Label Content="Log out"
+                                                   FontSize="18"
+                                                   FontWeight="SemiBold"
+                                                   Foreground="White"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   Padding="0"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
         </Grid>
 
     </Grid>

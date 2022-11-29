@@ -19,13 +19,13 @@ namespace MovieLib
         public ICommand ToPlaylistsCommand { get; set; }
         public ICommand ToSettingsCommand { get; set; }
 
-        public UserMainViewModel(NavigationStore navigationStore, User user)
+        public UserMainViewModel(NavigationStore mainWindowNav, NavigationStore navigationStore, User user)
         {
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModelChanged += CurrentPropertyChanged;
             ToMoviesCommand = new NavigateCommand<MoviesUserViewModel>(navigationStore, () => new MoviesUserViewModel(navigationStore, user));
             ToPlaylistsCommand = new NavigateCommand<PlaylistViewModel>(navigationStore, () => new PlaylistViewModel(navigationStore, user));
-            ToSettingsCommand = new NavigateCommand<SettingsViewModel>(navigationStore, () => new SettingsViewModel(user));
+            ToSettingsCommand = new NavigateCommand<SettingsViewModel>(navigationStore, () => new SettingsViewModel(mainWindowNav,user));
             _user = user;
         }
 

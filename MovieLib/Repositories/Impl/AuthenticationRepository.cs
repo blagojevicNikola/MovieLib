@@ -54,7 +54,7 @@ namespace MovieLib.Repositories.Impl
             {
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = conn;
-                command.CommandText = "insert into person(Username, Name, Surname, Password) values(@username, @name, @surname, @password)";
+                command.CommandText = "insert into person(Username, Password, Name, Surname) values(@username, @password, @name, @surname)";
                 command.Parameters.AddWithValue("@username", user.Username);
                 command.Parameters.AddWithValue("@name", user.Name);
                 command.Parameters.AddWithValue("@surname", user.Surname);
@@ -62,11 +62,12 @@ namespace MovieLib.Repositories.Impl
                 conn.Open();
                 command.ExecuteNonQuery();
                 var lastInserted = command.LastInsertedId;
-                command.CommandText = "insert into user(Person_id, Theme_id, Language_id) values(@id, @theme, @language)";
+                command.CommandText = "insert into user(Person_id, Blocked, Theme_id, Language_id) values(@id, @blocked, @theme, @language)";
                 command.Parameters.Clear();
                 command.Parameters.AddWithValue("@id", lastInserted);
+                command.Parameters.AddWithValue("@blocked", false);
                 command.Parameters.AddWithValue("@theme", 1);
-                command.Parameters.AddWithValue("language", 1);
+                command.Parameters.AddWithValue("@language", 1);
                 command.ExecuteNonQuery();
                 command.CommandText = "select * from user_info where id=@id";
                 command.Parameters.Clear();

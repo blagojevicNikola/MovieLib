@@ -29,6 +29,14 @@ namespace MovieLib.Views
         {
             if (this.DataContext != null)
             { ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password; }
+            if(passwordBox.Password.Length==0)
+            {
+                passwordBox.Background.Opacity = 1;
+            }
+            else
+            {
+                passwordBox.Background.Opacity = 0;
+            }
         }
     }
 }
