@@ -396,7 +396,7 @@
             </VisualBrush>
         </Style.Resources>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontSize" Value="17"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>

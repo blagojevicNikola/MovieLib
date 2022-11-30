@@ -10,5 +10,6 @@ namespace MovieLib.Repositories.Interfaces
     public interface IMovieTypeRepository
     {
         public IEnumerable<MovieType> GetAll();
+        public IEnumerable<MovieType> GetAllDependingOnMovie(int movieId);
     }
 }

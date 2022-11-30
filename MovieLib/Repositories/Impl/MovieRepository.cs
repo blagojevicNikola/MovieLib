@@ -198,22 +198,52 @@ namespace MovieLib.Repositories.Impl
             }
         }
 
-        public bool Update(Movie movie)
+        public bool Update(Movie movie, IList<MovieType> types)
         {
             using (var conn = this.GetConnection())
             {
+
                 MySqlCommand command = new MySqlCommand();
+                conn.Open();
+                MySqlTransaction transaction = conn.BeginTransaction();
                 command.Connection = conn;
+                command.Transaction = transaction;
                 command.CommandText = "update movie set Title=@title, Director=@director, Description=@description, PublishDate=@publish_date, ImageUri=@image_uri where id=@id";
+                command.Parameters.AddWithValue("@id", movie.Id);
                 command.Parameters.AddWithValue("@title", movie.Title);
                 command.Parameters.AddWithValue("@director", movie.Director);
                 command.Parameters.AddWithValue("@description", movie.Description);
-                command.Parameters.AddWithValue("@public_date", movie.Published);
+                command.Parameters.AddWithValue("@publish_date", movie.Published);
                 command.Parameters.AddWithValue("@image_uri", movie.Uri);
-                command.Parameters.AddWithValue("@id", movie.Id);
-                conn.Open();
-                command.ExecuteNonQuery();
-                return true;
+                MySqlDataReader reader = null;
+                try
+                {
+                    command.ExecuteNonQuery();
+                    var lastInsertedId = movie.Id;
+                    command.Parameters.Clear();
+                    command.CommandText = "delete from movie_of_type where Movie_id=@movieId";
+                    command.Parameters.AddWithValue("@movieId", lastInsertedId);
+                    command.ExecuteNonQuery();
+                    foreach (MovieType t in types)
+                    {
+                        command.Parameters.Clear();
+                        command.CommandText = "insert into movie_of_type values(@type_id, @movie_id)";
+                        command.Parameters.AddWithValue("@movie_id", lastInsertedId);
+                        command.Parameters.AddWithValue("@type_id", t.Id);
+                        command.ExecuteNonQuery();
+                    }
+                    transaction.Commit();
+                    return true;
+                }
+                catch (MySqlException e)
+                {
+                    if (reader != null)
+                    {
+                        reader.Close();
+                    }
+                    transaction.Rollback();
+                    throw e;
+                }
             }
         }
     }

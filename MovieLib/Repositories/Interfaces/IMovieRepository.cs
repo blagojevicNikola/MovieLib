@@ -15,6 +15,6 @@ namespace MovieLib.Repositories.Interfaces
         public Movie? GetById(int id);
         public Movie? Create(Movie movie, int adminId, IList<MovieType> types);
         public bool Delete(int id);
-        public bool Update(Movie movie);
+        public bool Update(Movie movie, IList<MovieType> types);
     }
 }
