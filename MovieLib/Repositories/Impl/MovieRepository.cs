@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MovieLib.Repositories.Impl
 {
-    public class MovieRepository : RepositoryBase,IMovieRepository
+    public class MovieRepository : RepositoryBase, IMovieRepository
     {
         public Movie? Create(Movie movie, int adminId, IList<MovieType> types)
         {

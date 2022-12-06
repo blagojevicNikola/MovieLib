@@ -41,7 +41,7 @@ namespace MovieLib
 
         public void onMovie(Movie movie)
         {
-            ICommand OpenMovieCommand = new NavigateCommand<MoviePageViewModel>(_navigationStore, () => new MoviePageViewModel(_navigationStore, _user, movie));
+            ICommand OpenMovieCommand = new NavigateCommand<MoviePageViewModel>(_navigationStore, () => new MoviePageViewModel(_navigationStore, _user, movie, false));
             OpenMovieCommand.Execute(null);
         }
 

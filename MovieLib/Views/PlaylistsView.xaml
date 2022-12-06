@@ -30,9 +30,13 @@
                               Margin="0,20,0,0">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Button Cursor="Hand">
+                            <Button Cursor="Hand"
+                                    Command="{Binding Path=DataContext.OpenCommand, 
+                                    RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                    CommandParameter="{Binding}">
                                 <Button.Template>
                                     <ControlTemplate>
+                                        <Grid>
                                         <Border Name="backgroundBorder" Background="{TemplateBinding Button.Background}"
                                                 Margin="20,0,0,20"
                                                 Padding="4"
@@ -56,6 +60,14 @@
                                            Foreground="LightGray"/>
                                             </StackPanel>
                                         </Border>
+                                            <Button Height="20"
+                                                Width="20"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Top"
+                                                Command="{Binding Path=DataContext.RemoveMovieCommand, 
+                                                RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                                CommandParameter="{Binding}"/>
+                                        </Grid>
                                     </ControlTemplate>
                                 </Button.Template>
                                 <Button.Style>

@@ -12,6 +12,7 @@ namespace MovieLib.Repositories.Interfaces
         public IEnumerable<User> GetAll();
         public bool BlockUser(int id);
         public bool UnblockUser(int id);
+        public bool RemoveMovieFromPlaylist(int movieId, int userId);
 
         public bool AddMovieToPlaylist(Movie movie, User user);
     }

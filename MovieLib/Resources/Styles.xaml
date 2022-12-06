@@ -452,6 +452,40 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="CommentTextBox" TargetType="TextBox">
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="7" />
+            </Style>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Top" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="Comment" Foreground="LightGray" FontSize="17" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="SlateGray"/>
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <Setter Property="Padding" Value="3,0,0,0"/>
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="LightBlue"/>
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <!--<Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>-->
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="NameTextBox" TargetType="TextBox">
         <Style.Resources>
             <Style TargetType="{x:Type Border}">

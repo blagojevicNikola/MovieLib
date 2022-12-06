@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MovieLib.Repositories.Impl
 {
@@ -56,6 +57,21 @@ namespace MovieLib.Repositories.Impl
                     result.Add(new User(reader.GetInt32(0), reader.GetString(3), reader.GetString(4), reader.GetString(1), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7)));
                 }
                 return result;
+            }
+        }
+
+        public bool RemoveMovieFromPlaylist(int movieId, int userId)
+        {
+            using (var conn = this.GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = conn;
+                command.CommandText = "delete from user_has_in_playlist where User_Person_id=@user_id and Movie_id=@movie_id";
+                command.Parameters.AddWithValue("@movie_id", movieId);
+                command.Parameters.AddWithValue("@user_id", userId);
+                conn.Open();
+                command.ExecuteNonQuery();
+                return true;
             }
         }
 

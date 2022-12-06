@@ -12,13 +12,20 @@ namespace MovieLib
     public class MoviePageViewModel : BaseViewModel
     {
         private User _user;
-        private Movie _movie;
+        public Movie Movie { get; set; }
         public ICommand BackToMoviesCommand { get; set; }
-        public MoviePageViewModel(NavigationStore navigationStore, User user, Movie movie)
+        public MoviePageViewModel(NavigationStore navigationStore, User user, Movie movie, bool fromPlaylist)
         {
             _user = user;
-            BackToMoviesCommand = new NavigateCommand<MoviesUserViewModel>(navigationStore, () => new MoviesUserViewModel(navigationStore, user));
-            _movie = movie; 
+            if(!fromPlaylist) 
+            {
+                BackToMoviesCommand = new NavigateCommand<MoviesUserViewModel>(navigationStore, () => new MoviesUserViewModel(navigationStore, user));
+            }
+            else
+            {
+                BackToMoviesCommand = new NavigateCommand<PlaylistViewModel>(navigationStore, () => new PlaylistViewModel(navigationStore, user));
+            }
+            Movie = movie; 
         }
     }
 }
