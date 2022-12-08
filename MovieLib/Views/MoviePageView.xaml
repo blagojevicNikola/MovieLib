@@ -121,6 +121,7 @@
                             <DataTemplate>
                                 <Grid>
                                     <Border BorderThickness="0,0,0,2"
+                                            Background="#737373"
                                             BorderBrush="LightGray"/>
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -132,6 +133,7 @@
                                                Foreground="White"
                                                Grid.Row="0"/>
                                         <TextBlock Grid.Row="1"
+                                                 Margin="9,9,9,9"
                                                  Text="{Binding Comment}"
                                                  FontSize="19"
                                                  TextWrapping="Wrap"
