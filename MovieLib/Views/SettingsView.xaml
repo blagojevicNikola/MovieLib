@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:MovieLib.Views" xmlns:movielib="clr-namespace:MovieLib" d:DataContext="{d:DesignInstance Type=movielib:SettingsViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="1050">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Resources/Styles.xaml"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -18,7 +21,7 @@
 
             <Label Grid.Column="0"
                    Padding="0"
-                   Content="Settings"
+                   Content="{DynamicResource SettingsText}"
                    FontSize="30"
                    Foreground="White"
                    FontWeight="SemiBold"/>
@@ -48,7 +51,7 @@
                                         <Grid>
                                             <Border Background="{TemplateBinding Button.Background}"
                                                     CornerRadius="5"/>
-                                            <Label Content="Log out"
+                                            <Label Content="{DynamicResource LogOutButtonText}"
                                                    FontSize="18"
                                                    FontWeight="SemiBold"
                                                    Foreground="White"
@@ -71,14 +74,26 @@
                 <StackPanel Orientation="Horizontal"
                             Margin="20"
                             Grid.Row="2">
-                    <RadioButton Height="40"
-                                 Width="40"/>
-                    <RadioButton Height="40"
-                                 Width="40"
-                                 Margin="50,0,0,0"/>
-                    <RadioButton Height="40"
-                                 Width="40"
-                                 Margin="50,0,0,0"/>
+                    <RadioButton Background="#1a1a1a"
+                                 Style="{StaticResource ThemeRadioButtonStyle}">
+                        <Label Content="Dark"
+                               FontSize="17"
+                               FontWeight="SemiBold"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource ThemeRadioButtonStyle}"
+                                 Background="LightGray"
+                                 Margin="50,0,0,0">
+                        <Label Content="Light"
+                               FontSize="17"
+                               FontWeight="SemiBold"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource ThemeRadioButtonStyle}"
+                                 Background="CadetBlue"
+                                 Margin="50,0,0,0">
+                        <Label Content="Blue"
+                               FontSize="17"
+                               FontWeight="SemiBold"/>
+                    </RadioButton>
                 </StackPanel>
 
                 <Label Grid.Row="3"
@@ -89,11 +104,22 @@
                 <StackPanel Orientation="Horizontal"
                             Margin="20"
                             Grid.Row="4">
-                    <RadioButton Height="40"
-                                 Width="40"/>
-                    <RadioButton Height="40"
-                                 Width="40"
-                                 Margin="50,0,0,0"/>
+                    <RadioButton 
+                                 Checked="RadioButton_Checked"
+                                 Style="{StaticResource LanguageRadioButtonStyle}">
+                        <Label Content="English"
+                               FontSize="17"
+                               FontWeight="SemiBold"
+                               Foreground="Black"/>
+                    </RadioButton>
+                    <RadioButton Checked="RadioButton_Checked_1"
+                                 Margin="50,0,0,0"
+                                 Style="{StaticResource LanguageRadioButtonStyle}">
+                        <Label Content="Serbian"
+                               FontSize="17"
+                               FontWeight="SemiBold"
+                               Foreground="Black"/>
+                    </RadioButton>
                 </StackPanel>
             </Grid>
         </Grid>

@@ -18,7 +18,7 @@
 
             <Label Grid.Row="0"
                    Padding="0"
-                   Content="Playlist"
+                   Content="{DynamicResource PlaylistText}"
                    FontSize="30"
                    Foreground="White"
                    FontWeight="SemiBold"/>

@@ -19,7 +19,7 @@
 
             <Label Grid.Row="0"
                    Padding="0"
-                   Content="Movies"
+                   Content="{DynamicResource MoviesText}"
                    FontSize="30"
                    Foreground="White"
                    FontWeight="SemiBold"/>

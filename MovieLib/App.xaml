@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:MovieLib" xmlns:views="clr-namespace:MovieLib.Views"
              >
     <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/SerbianLanguage.xaml"/>
+                <ResourceDictionary Source="/Resources/EnglishLanguage.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        
         <DataTemplate DataType="{x:Type local:LoginViewModel}">
             <views:LoginView/>
         </DataTemplate>
@@ -40,5 +46,6 @@
         <DataTemplate DataType="{x:Type local:MoviePageViewModel}">
             <views:MoviePageView/>
         </DataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

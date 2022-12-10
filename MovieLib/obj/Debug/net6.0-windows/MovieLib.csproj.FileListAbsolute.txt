@@ -94,3 +94,5 @@ C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\Mov
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\MoviePageView.baml
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\EditMovieView.g.cs
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Views\EditMovieView.baml
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Resources\EnglishLanguage.baml
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Resources\SerbianLanguage.baml

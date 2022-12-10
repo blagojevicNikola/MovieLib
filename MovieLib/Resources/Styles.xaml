@@ -160,7 +160,7 @@
                                     VerticalAlignment="Center">
                             <ic:PackIconMaterial Kind="MovieOutline" Height="30" Width="30"
                                                  VerticalAlignment="Center"/>
-                            <Label Content="Movies" FontSize="24" 
+                            <Label Content="{DynamicResource MoviesText}" FontSize="24" 
                                    FontWeight="Light" 
                                    Margin="10,0,0,0"
                                    Padding="0"
@@ -197,7 +197,7 @@
                                     VerticalAlignment="Center">
                             <ic:PackIconMaterial Kind="FormatListBulletedSquare" Height="30" Width="30"
                                                  VerticalAlignment="Center"/>
-                            <Label Content="Playlists" FontSize="24" 
+                            <Label Content="{DynamicResource PlaylistText}" FontSize="24" 
                                    FontWeight="Light" 
                                    Margin="10,0,0,0"
                                    Padding="0"
@@ -234,7 +234,7 @@
                                     VerticalAlignment="Center">
                             <ic:PackIconMaterial Kind="CogOutline" Height="30" Width="30"
                                                  VerticalAlignment="Center"/>
-                            <Label Content="Settings" FontSize="24" 
+                            <Label Content="{DynamicResource SettingsText}" FontSize="24" 
                                    FontWeight="Light" 
                                    Margin="10,0,0,0"
                                    Padding="0"
@@ -459,7 +459,7 @@
             </Style>
             <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Top" Stretch="None">
                 <VisualBrush.Visual>
-                    <Label Content="Comment" Foreground="LightGray" FontSize="17" />
+                    <Label Content="{DynamicResource CommentText}" Foreground="LightGray" FontSize="17" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Style.Resources>
@@ -798,5 +798,69 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="RateComboBoxStyle" TargetType="ComboBoxItem">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style x:Key="LanguageRadioButtonStyle" TargetType="RadioButton">
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding RadioButton.Background}"
+                            CornerRadius="8">
+                        <ContentPresenter Content="{TemplateBinding RadioButton.Content}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="LightGray"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ThemeRadioButtonStyle" TargetType="RadioButton">
+        <!--<Setter Property="Height" Value="45"/>
+        <Setter Property="Width" Value="45"/>-->
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Border x:Name="themeButtonBorder"
+                                Height="45"
+                                Width="45"
+                                Background="{TemplateBinding RadioButton.Background}"
+                                BorderBrush="Transparent"
+                                BorderThickness="4"
+                                Grid.Row="0"
+                                CornerRadius="40">
+                        </Border>
+                        <ContentPresenter Grid.Row="1" HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding RadioButton.Content}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="RadioButton.IsChecked" Value="True">
+                            <Setter TargetName="themeButtonBorder" Property="Border.BorderBrush" Value="LightBlue"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 </ResourceDictionary>
