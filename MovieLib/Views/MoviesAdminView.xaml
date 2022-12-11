@@ -26,10 +26,11 @@
 
             <Label Grid.Column="0"
                    Padding="0"
+                   FontFamily="{DynamicResource ThemeFontFamilyMedium}"
                    Content="{DynamicResource MoviesText}"
                    FontSize="30"
                    Foreground="{DynamicResource FontColor}"
-                   FontWeight="SemiBold"/>
+                   FontWeight="Medium"/>
 
             <Button Style="{StaticResource AddMovieButtonStyle}"
                     Grid.Column="1"

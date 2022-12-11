@@ -18,10 +18,11 @@
 
             <Label Grid.Row="0"
                    Padding="0"
+                   FontFamily="{DynamicResource ThemeFontFamilyMedium}"
                    Content="{DynamicResource PlaylistText}"
                    FontSize="30"
                    Foreground="{DynamicResource FontColor}"
-                   FontWeight="SemiBold"/>
+                   FontWeight="Medium"/>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto"
                           Margin="0,10,0,0"

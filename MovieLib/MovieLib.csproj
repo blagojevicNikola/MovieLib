@@ -8,8 +8,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
+    <None Remove="Resources\Fonts\Poppins-ExtraLight.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Light.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
+    <None Remove="Resources\Fonts\Ubuntu-Light.ttf" />
+    <None Remove="Resources\Fonts\Ubuntu-Medium.ttf" />
+    <None Remove="Resources\Fonts\Ubuntu-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
     <PackageReference Include="MySql.Data" Version="8.0.31" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Poppins-Bold.ttf" />
+    <Resource Include="Resources\Fonts\Poppins-ExtraLight.ttf" />
+    <Resource Include="Resources\Fonts\Poppins-Light.ttf" />
+    <Resource Include="Resources\Fonts\Poppins-Regular.ttf" />
+    <Resource Include="Resources\Fonts\Ubuntu-Light.ttf" />
+    <Resource Include="Resources\Fonts\Ubuntu-Medium.ttf" />
+    <Resource Include="Resources\Fonts\Ubuntu-Regular.ttf" />
   </ItemGroup>
 
 </Project>

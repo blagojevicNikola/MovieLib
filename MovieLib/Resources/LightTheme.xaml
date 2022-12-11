@@ -4,4 +4,8 @@
     <SolidColorBrush x:Key="LightMainBackgroundColor" Color="#dbdbdb"/>
     <SolidColorBrush x:Key="NavigationButtonHoverColor" Color="#f0f0f0"/>
     <SolidColorBrush x:Key="FontColor" Color="#1c1c1c"/>
+    <SolidColorBrush x:Key="PromtTextColor" Color="#666666"/>
+    <FontFamily x:Key="ThemeFontFamilyMedium">
+        /Resources/Fonts/#Poppins
+    </FontFamily>
 </ResourceDictionary>

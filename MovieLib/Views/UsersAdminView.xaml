@@ -26,9 +26,9 @@
 
             <Label Grid.Column="0"
                    Padding="0"
-                   Content="Users"
+                   Content="{DynamicResource UsersText}"
                    FontSize="30"
-                   Foreground="White"
+                   Foreground="{DynamicResource FontColor}"
                    FontWeight="SemiBold"/>
         </Grid>
 

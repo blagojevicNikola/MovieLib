@@ -5,6 +5,7 @@
     <sys:String x:Key="MoviesText">Filmovi</sys:String>
     <sys:String x:Key="PlaylistText">Plejlista</sys:String>
     <sys:String x:Key="SettingsText">Opcije</sys:String>
+    <sys:String x:Key="UsersText">Korisnici</sys:String>
     <sys:String x:Key="CommentText">Komentar</sys:String>
     <sys:String x:Key="EnglishText">Engleski</sys:String>
     <sys:String x:Key="SerbianText">Srpski</sys:String>

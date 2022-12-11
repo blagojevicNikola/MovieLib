@@ -21,10 +21,12 @@
 
             <Label Grid.Column="0"
                    Padding="0"
+                   Margin="0,0,0,20"
+                   FontFamily="{DynamicResource ThemeFontFamilyMedium}"
                    Content="{DynamicResource SettingsText}"
                    FontSize="30"
                    Foreground="{DynamicResource FontColor}"
-                   FontWeight="SemiBold"/>
+                   FontWeight="Medium"/>
 
             <Grid Grid.Row="1" Margin="5">
                 <Grid.RowDefinitions>
@@ -68,7 +70,9 @@
 
                 <Label Grid.Row="1"
                        FontSize="26"
-                       FontWeight="SemiBold"
+                       Padding="0"
+                       FontFamily="{DynamicResource ThemeFontFamilyMedium}"
+                       FontWeight="Light"
                        Foreground="{DynamicResource FontColor}"
                        Content="{DynamicResource ThemesText}"/>
                 <StackPanel Orientation="Horizontal"
@@ -100,7 +104,8 @@
 
                 <Label Grid.Row="3"
                        FontSize="26"
-                       FontWeight="SemiBold"
+                       FontFamily="{DynamicResource ThemeFontFamilyMedium}"
+                       FontWeight="Light"
                        Foreground="{DynamicResource FontColor}"
                        Content="{DynamicResource LanguagesText}"/>
                 <StackPanel Orientation="Horizontal"

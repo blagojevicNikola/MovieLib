@@ -31,11 +31,12 @@
                 </Button>
                 <Label
                    Padding="0"
+                   FontFamily="{DynamicResource ThemeFontFamilyMedium}"
                    Margin="15,0,0,0"
                    Content="{DynamicResource NewMovieText}"
                    FontSize="30"
                    Foreground="{DynamicResource FontColor}"
-                   FontWeight="SemiBold"/>
+                   FontWeight="Medium"/>
             </StackPanel>
             
         </Grid>

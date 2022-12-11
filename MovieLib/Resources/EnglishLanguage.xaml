@@ -9,6 +9,7 @@
     <sys:String x:Key="EnglishText">English</sys:String>
     <sys:String x:Key="SerbianText">Serbian</sys:String>
     <sys:String x:Key="DarkText">Dark</sys:String>
+    <sys:String x:Key="UsersText">Users</sys:String>
     <sys:String x:Key="LightText">Light</sys:String>
     <sys:String x:Key="BlueText">Blue</sys:String>
     <sys:String x:Key="LanguagesText">Languages</sys:String>

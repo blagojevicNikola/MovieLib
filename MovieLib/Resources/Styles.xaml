@@ -161,6 +161,7 @@
                             <ic:PackIconMaterial Kind="MovieOutline" Height="30" Width="30"
                                                  VerticalAlignment="Center"/>
                             <Label Content="{DynamicResource MoviesText}" FontSize="24" 
+                                   FontFamily="{DynamicResource ThemeFontFamilyMedium}"
                                    FontWeight="Light" 
                                    Margin="10,0,0,0"
                                    Padding="0"
@@ -198,6 +199,7 @@
                             <ic:PackIconMaterial Kind="FormatListBulletedSquare" Height="30" Width="30"
                                                  VerticalAlignment="Center"/>
                             <Label Content="{DynamicResource PlaylistText}" FontSize="24" 
+                                   FontFamily="{DynamicResource ThemeFontFamilyMedium}"
                                    FontWeight="Light" 
                                    Margin="10,0,0,0"
                                    Padding="0"
@@ -235,6 +237,7 @@
                             <ic:PackIconMaterial Kind="CogOutline" Height="30" Width="30"
                                                  VerticalAlignment="Center"/>
                             <Label Content="{DynamicResource SettingsText}" FontSize="24" 
+                                   FontFamily="{DynamicResource ThemeFontFamilyMedium}"
                                    FontWeight="Light" 
                                    Margin="10,0,0,0"
                                    Padding="0"
@@ -271,7 +274,8 @@
                                     VerticalAlignment="Center">
                             <ic:PackIconMaterial Kind="AccountCircleOutline" Height="30" Width="30"
                                                  VerticalAlignment="Center"/>
-                            <Label Content="Users" FontSize="24" 
+                            <Label Content="{DynamicResource UsersText}" FontSize="24" 
+                                   FontFamily="{DynamicResource ThemeFontFamilyMedium}"
                                    FontWeight="Light" 
                                    Margin="10,0,0,0"
                                    Padding="0"
@@ -391,12 +395,12 @@
             </Style>
             <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
                 <VisualBrush.Visual>
-                    <Label Content="{DynamicResource TitleText}" Foreground="LightGray" FontSize="17" />
+                    <Label Content="{DynamicResource TitleText}" Foreground="{DynamicResource PromtTextColor}" FontSize="17" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Style.Resources>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="{DynamicResource FontColor}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontSize" Value="17"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -455,16 +459,16 @@
     <Style x:Key="CommentTextBox" TargetType="TextBox">
         <Style.Resources>
             <Style TargetType="{x:Type Border}">
-                <Setter Property="CornerRadius" Value="7" />
+                <Setter Property="CornerRadius" Value="7"/>
             </Style>
             <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Top" Stretch="None">
                 <VisualBrush.Visual>
-                    <Label Content="{DynamicResource CommentText}" Foreground="LightGray" FontSize="17" />
+                    <Label Content="{DynamicResource CommentText}" Foreground="{DynamicResource PromtTextColor}" FontSize="17" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Style.Resources>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="{DynamicResource FontColor}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="SlateGray"/>
         <Setter Property="FontSize" Value="17"/>
@@ -595,12 +599,12 @@
             </Style>
             <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
                 <VisualBrush.Visual>
-                    <Label Content="{DynamicResource DirectorText}" Foreground="LightGray" FontSize="17" />
+                    <Label Content="{DynamicResource DirectorText}" Foreground="{DynamicResource PromtTextColor}" FontSize="17" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Style.Resources>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="{DynamicResource FontColor}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontSize" Value="17"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -628,12 +632,12 @@
             </Style>
             <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
                 <VisualBrush.Visual>
-                    <Label Content="{DynamicResource PublishDateText}" Foreground="LightGray" FontSize="17" />
+                    <Label Content="{DynamicResource PublishDateText}" Foreground="{DynamicResource PromtTextColor}" FontSize="17" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Style.Resources>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="{DynamicResource FontColor}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontSize" Value="17"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -661,12 +665,12 @@
             </Style>
             <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Top" Stretch="None">
                 <VisualBrush.Visual>
-                    <Label Padding="1" Content="{DynamicResource DescriptionText}" Foreground="LightGray" FontSize="17" />
+                    <Label Padding="1" Content="{DynamicResource DescriptionText}" Foreground="{DynamicResource PromtTextColor}" FontSize="17" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Style.Resources>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="{DynamicResource FontColor}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontSize" Value="17"/>
         <Setter Property="VerticalContentAlignment" Value="Top"/>
@@ -700,7 +704,7 @@
                         <ic:PackIconMaterial Kind="Magnify" 
                                              Height="20" 
                                              Width="20" 
-                                             Foreground="White"
+                                             Foreground="{DynamicResource PromtTextColor}"
                                              HorizontalAlignment="Center"
                                              VerticalAlignment="Center"/>
                     </Grid>

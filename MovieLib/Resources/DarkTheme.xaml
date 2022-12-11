@@ -4,4 +4,8 @@
     <SolidColorBrush x:Key="LightMainBackgroundColor" Color="#8e8e8e"/>
     <SolidColorBrush x:Key="NavigationButtonHoverColor" Color="#989898"/>
     <SolidColorBrush x:Key="FontColor" Color="#f5f5f5"/>
+    <SolidColorBrush x:Key="PromtTextColor" Color="LightGray"/>
+    <FontFamily x:Key="ThemeFontFamilyMedium">
+        /Resources/Fonts/#Ubuntu
+    </FontFamily>
 </ResourceDictionary>
