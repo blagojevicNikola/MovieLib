@@ -173,7 +173,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#989898"/>
+                <Setter Property="Background" Value="{DynamicResource NavigationButtonHoverColor}"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="#c0e3fa"/>
@@ -210,7 +210,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#989898"/>
+                <Setter Property="Background" Value="{DynamicResource NavigationButtonHoverColor}"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="#c0e3fa"/>
@@ -247,7 +247,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#989898"/>
+                <Setter Property="Background" Value="{DynamicResource NavigationButtonHoverColor}"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="#c0e3fa"/>
@@ -284,7 +284,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#989898"/>
+                <Setter Property="Background" Value="{DynamicResource NavigationButtonHoverColor}"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="#c0e3fa"/>
@@ -339,7 +339,7 @@
                         <ic:PackIconMaterial Kind="ArrowLeft" 
                                              Height="18" 
                                              Width="18" 
-                                             Foreground="White"
+                                             Foreground="{DynamicResource FontColor}"
                                              HorizontalAlignment="Center"
                                              VerticalAlignment="Center"/>
                     </Grid>

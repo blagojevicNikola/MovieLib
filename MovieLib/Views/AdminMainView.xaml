@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0"
-                    Background="#8e8e8e"
+                    Background="{DynamicResource LightMainBackgroundColor}"
                     CornerRadius="14,0,0,14">
                 <Grid Margin="0,15,0,0">
                     <Grid.RowDefinitions>
@@ -57,7 +57,7 @@
                 </Grid>
             </Border>
             <Border Grid.Column="1"
-                    Background="#606060"
+                    Background="{DynamicResource MainBackgroundColor}"
                     CornerRadius="0,14,14,0">
 
                 <ContentControl Grid.Row="3"

@@ -12,6 +12,12 @@
                         <ResourceDictionary Source="/Resources/EnglishLanguage.xaml"/>
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="/Resources/LightTheme.xaml"/>
+                        <ResourceDictionary Source="/Resources/DarkTheme.xaml"/>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             
             <DataTemplate DataType="{x:Type local:LoginViewModel}">

@@ -34,7 +34,7 @@
                    Margin="15,0,0,0"
                    Content="{DynamicResource NewMovieText}"
                    FontSize="30"
-                   Foreground="White"
+                   Foreground="{DynamicResource FontColor}"
                    FontWeight="SemiBold"/>
             </StackPanel>
             

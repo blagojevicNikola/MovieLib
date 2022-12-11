@@ -23,7 +23,7 @@
                    Padding="0"
                    Content="{DynamicResource SettingsText}"
                    FontSize="30"
-                   Foreground="White"
+                   Foreground="{DynamicResource FontColor}"
                    FontWeight="SemiBold"/>
 
             <Grid Grid.Row="1" Margin="5">
@@ -69,12 +69,13 @@
                 <Label Grid.Row="1"
                        FontSize="26"
                        FontWeight="SemiBold"
-                       Foreground="White"
+                       Foreground="{DynamicResource FontColor}"
                        Content="{DynamicResource ThemesText}"/>
                 <StackPanel Orientation="Horizontal"
                             Margin="20"
                             Grid.Row="2">
                     <RadioButton Background="#1a1a1a"
+                                 Checked="RadioButton_Checked_2"
                                  Style="{StaticResource ThemeRadioButtonStyle}">
                         <Label Content="{DynamicResource DarkText}"
                                FontSize="17"
@@ -82,14 +83,15 @@
                     </RadioButton>
                     <RadioButton Style="{StaticResource ThemeRadioButtonStyle}"
                                  Background="LightGray"
-                                 Margin="50,0,0,0">
+                                 Checked="RadioButton_Checked_3"
+                                 Margin="70,0,0,0">
                         <Label Content="{DynamicResource LightText}"
                                FontSize="17"
                                FontWeight="SemiBold"/>
                     </RadioButton>
                     <RadioButton Style="{StaticResource ThemeRadioButtonStyle}"
                                  Background="CadetBlue"
-                                 Margin="50,0,0,0">
+                                 Margin="70,0,0,0">
                         <Label Content="{DynamicResource BlueText}"
                                FontSize="17"
                                FontWeight="SemiBold"/>
@@ -99,7 +101,7 @@
                 <Label Grid.Row="3"
                        FontSize="26"
                        FontWeight="SemiBold"
-                       Foreground="White"
+                       Foreground="{DynamicResource FontColor}"
                        Content="{DynamicResource LanguagesText}"/>
                 <StackPanel Orientation="Horizontal"
                             Margin="20"

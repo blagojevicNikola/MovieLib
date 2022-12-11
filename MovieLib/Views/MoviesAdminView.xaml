@@ -26,9 +26,9 @@
 
             <Label Grid.Column="0"
                    Padding="0"
-                   Content="Movies"
+                   Content="{DynamicResource MoviesText}"
                    FontSize="30"
-                   Foreground="White"
+                   Foreground="{DynamicResource FontColor}"
                    FontWeight="SemiBold"/>
 
             <Button Style="{StaticResource AddMovieButtonStyle}"

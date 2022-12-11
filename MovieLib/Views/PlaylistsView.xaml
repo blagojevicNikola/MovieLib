@@ -20,7 +20,7 @@
                    Padding="0"
                    Content="{DynamicResource PlaylistText}"
                    FontSize="30"
-                   Foreground="White"
+                   Foreground="{DynamicResource FontColor}"
                    FontWeight="SemiBold"/>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto"
