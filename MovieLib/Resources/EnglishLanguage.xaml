@@ -6,5 +6,22 @@
     <sys:String x:Key="PlaylistText">Playlist</sys:String>
     <sys:String x:Key="SettingsText">Settings</sys:String>
     <sys:String x:Key="CommentText">Comment</sys:String>
-    
+    <sys:String x:Key="EnglishText">English</sys:String>
+    <sys:String x:Key="SerbianText">Serbian</sys:String>
+    <sys:String x:Key="DarkText">Dark</sys:String>
+    <sys:String x:Key="LightText">Light</sys:String>
+    <sys:String x:Key="BlueText">Blue</sys:String>
+    <sys:String x:Key="LanguagesText">Languages</sys:String>
+    <sys:String x:Key="ThemesText">Themes</sys:String>
+    <sys:String x:Key="TitleText">Title</sys:String>
+    <sys:String x:Key="PublishedText">Published</sys:String>
+    <sys:String x:Key="DirectorText">Director</sys:String>
+    <sys:String x:Key="ImageUriText">Image URI</sys:String>
+    <sys:String x:Key="PublishDateText">Publish date</sys:String>
+    <sys:String x:Key="NewMovieText">New movie</sys:String>
+    <sys:String x:Key="DescriptionText">Description</sys:String>
+    <sys:String x:Key="EditMovieText">Edit movie</sys:String>
+    <sys:String x:Key="UsernameText">Username</sys:String>
+    <sys:String x:Key="NameText">Name</sys:String>
+    <sys:String x:Key="SurnameText">Surname</sys:String>
 </ResourceDictionary>

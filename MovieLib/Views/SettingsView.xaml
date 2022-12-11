@@ -70,27 +70,27 @@
                        FontSize="26"
                        FontWeight="SemiBold"
                        Foreground="White"
-                       Content="Themes"/>
+                       Content="{DynamicResource ThemesText}"/>
                 <StackPanel Orientation="Horizontal"
                             Margin="20"
                             Grid.Row="2">
                     <RadioButton Background="#1a1a1a"
                                  Style="{StaticResource ThemeRadioButtonStyle}">
-                        <Label Content="Dark"
+                        <Label Content="{DynamicResource DarkText}"
                                FontSize="17"
                                FontWeight="SemiBold"/>
                     </RadioButton>
                     <RadioButton Style="{StaticResource ThemeRadioButtonStyle}"
                                  Background="LightGray"
                                  Margin="50,0,0,0">
-                        <Label Content="Light"
+                        <Label Content="{DynamicResource LightText}"
                                FontSize="17"
                                FontWeight="SemiBold"/>
                     </RadioButton>
                     <RadioButton Style="{StaticResource ThemeRadioButtonStyle}"
                                  Background="CadetBlue"
                                  Margin="50,0,0,0">
-                        <Label Content="Blue"
+                        <Label Content="{DynamicResource BlueText}"
                                FontSize="17"
                                FontWeight="SemiBold"/>
                     </RadioButton>
@@ -100,14 +100,14 @@
                        FontSize="26"
                        FontWeight="SemiBold"
                        Foreground="White"
-                       Content="Languages"/>
+                       Content="{DynamicResource LanguagesText}"/>
                 <StackPanel Orientation="Horizontal"
                             Margin="20"
                             Grid.Row="4">
                     <RadioButton 
                                  Checked="RadioButton_Checked"
                                  Style="{StaticResource LanguageRadioButtonStyle}">
-                        <Label Content="English"
+                        <Label Content="{DynamicResource EnglishText}"
                                FontSize="17"
                                FontWeight="SemiBold"
                                Foreground="Black"/>
@@ -115,7 +115,7 @@
                     <RadioButton Checked="RadioButton_Checked_1"
                                  Margin="50,0,0,0"
                                  Style="{StaticResource LanguageRadioButtonStyle}">
-                        <Label Content="Serbian"
+                        <Label Content="{DynamicResource SerbianText}"
                                FontSize="17"
                                FontWeight="SemiBold"
                                Foreground="Black"/>

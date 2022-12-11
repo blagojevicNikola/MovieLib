@@ -6,5 +6,22 @@
     <sys:String x:Key="PlaylistText">Plejlista</sys:String>
     <sys:String x:Key="SettingsText">Opcije</sys:String>
     <sys:String x:Key="CommentText">Komentar</sys:String>
-
+    <sys:String x:Key="EnglishText">Engleski</sys:String>
+    <sys:String x:Key="SerbianText">Srpski</sys:String>
+    <sys:String x:Key="DarkText">Tamno</sys:String>
+    <sys:String x:Key="LightText">Svijetlo</sys:String>
+    <sys:String x:Key="BlueText">Plavo</sys:String>
+    <sys:String x:Key="LanguagesText">Jezici</sys:String>
+    <sys:String x:Key="ThemesText">Teme</sys:String>
+    <sys:String x:Key="TitleText">Naslov</sys:String>
+    <sys:String x:Key="PublishedText">Objavljeno</sys:String>
+    <sys:String x:Key="DirectorText">Direktor</sys:String>
+    <sys:String x:Key="ImageUriText">SlikaURI</sys:String>
+    <sys:String x:Key="PublishDateText">Datum objave</sys:String>
+    <sys:String x:Key="NewMovieText">Novi film</sys:String>
+    <sys:String x:Key="DescriptionText">Opis</sys:String>
+    <sys:String x:Key="EditMovieText">Izmjeni film</sys:String>
+    <sys:String x:Key="UsernameText">Korisnicko ime</sys:String>
+    <sys:String x:Key="NameText">Ime</sys:String>
+    <sys:String x:Key="SurnameText">Prezime</sys:String>
 </ResourceDictionary>

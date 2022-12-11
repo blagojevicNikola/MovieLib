@@ -11,13 +11,13 @@ namespace MovieLib
 {
     public class SettingsViewModel : BaseViewModel
     {
-        private User _user;
+        private int _userId;
 
         public ICommand LogOutCommand { get; set; }
 
-        public SettingsViewModel(NavigationStore navigationStore, User user)
+        public SettingsViewModel(NavigationStore navigationStore, int userId)
         {
-            _user = user;
+            _userId = userId;
             LogOutCommand = new NavigateCommand<LoginViewModel>(navigationStore, () => new LoginViewModel(navigationStore));
         }
     }

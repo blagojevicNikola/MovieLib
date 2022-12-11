@@ -35,13 +35,13 @@ namespace MovieLib
             ToAdminViewCommand = new NavigateCommand<AdminMainViewModel>(navigationStore, () => {
                 NavigationStore navigationStore1 = new();
                 navigationStore1.CurrentViewModel = new MoviesAdminViewModel(navigationStore1, _admin);
-                return new AdminMainViewModel(navigationStore1, _admin);
+                return new AdminMainViewModel(navigationStore, navigationStore1, _admin);
             });
             ToUserViewCommand = new NavigateCommand<UserMainViewModel>(navigationStore, () =>
             {
                 NavigationStore navigationStore2 = new();
                 navigationStore2.CurrentViewModel = new MoviesUserViewModel(navigationStore2, _user);
-                return new UserMainViewModel(navigationStore,navigationStore2, _user);
+                return new UserMainViewModel(navigationStore, navigationStore2, _user);
             });
             LoginCommand = new RelyCommand(() => loggingIn());
         }

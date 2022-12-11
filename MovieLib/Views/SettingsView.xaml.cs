@@ -27,7 +27,8 @@ namespace MovieLib.Views
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            Application.Current.Resources.MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries[0]);
+            Application.Current.Resources.MergedDictionaries[0].Remove(Application.Current.Resources.MergedDictionaries[0]);
+            //Application.Current.Resources.MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries.find)
             ResourceDictionary newRes = new ResourceDictionary();
             newRes.Source = new Uri("/Resources/EnglishLanguage.xaml", UriKind.Relative);
             Application.Current.Resources.MergedDictionaries.Add(newRes);
@@ -35,7 +36,7 @@ namespace MovieLib.Views
 
         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
-            Application.Current.Resources.MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries[0]);
+            Application.Current.Resources.MergedDictionaries[0].Remove(Application.Current.Resources.MergedDictionaries[0]);
             ResourceDictionary newRes = new ResourceDictionary();
             newRes.Source = new Uri("/Resources/SerbianLanguage.xaml",  UriKind.Relative);
             Application.Current.Resources.MergedDictionaries.Add(newRes);

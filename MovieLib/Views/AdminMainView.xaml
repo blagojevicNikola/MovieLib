@@ -49,6 +49,7 @@
                                  Margin="0,0,0,0"
                                  Style="{StaticResource UsersNavigationButtonStyle}"/>
                     <RadioButton Grid.Row="3"
+                                 Command="{Binding ToSettingsCommand}"
                                  GroupName="g1"
                                  Margin="0,0,0,0"
                                  Style="{StaticResource SettingsNavigationButtonStyle}"/>

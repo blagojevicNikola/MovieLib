@@ -391,7 +391,7 @@
             </Style>
             <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
                 <VisualBrush.Visual>
-                    <Label Content="Title" Foreground="LightGray" FontSize="17" />
+                    <Label Content="{DynamicResource TitleText}" Foreground="LightGray" FontSize="17" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Style.Resources>
@@ -595,7 +595,7 @@
             </Style>
             <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
                 <VisualBrush.Visual>
-                    <Label Content="Director" Foreground="LightGray" FontSize="17" />
+                    <Label Content="{DynamicResource DirectorText}" Foreground="LightGray" FontSize="17" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Style.Resources>
@@ -628,7 +628,7 @@
             </Style>
             <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
                 <VisualBrush.Visual>
-                    <Label Content="Publish date" Foreground="LightGray" FontSize="17" />
+                    <Label Content="{DynamicResource PublishDateText}" Foreground="LightGray" FontSize="17" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Style.Resources>
@@ -661,7 +661,7 @@
             </Style>
             <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Top" Stretch="None">
                 <VisualBrush.Visual>
-                    <Label Padding="1" Content="Description" Foreground="LightGray" FontSize="17" />
+                    <Label Padding="1" Content="{DynamicResource DescriptionText}" Foreground="LightGray" FontSize="17" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Style.Resources>

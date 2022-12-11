@@ -32,7 +32,7 @@
                 <Label
                    Padding="0"
                    Margin="15,0,0,0"
-                   Content="New movie"
+                   Content="{DynamicResource NewMovieText}"
                    FontSize="30"
                    Foreground="White"
                    FontWeight="SemiBold"/>

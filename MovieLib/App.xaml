@@ -6,11 +6,15 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Resources/SerbianLanguage.xaml"/>
-                <ResourceDictionary Source="/Resources/EnglishLanguage.xaml"/>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="/Resources/SerbianLanguage.xaml"/>
+                        <ResourceDictionary Source="/Resources/EnglishLanguage.xaml"/>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
-        
-        <DataTemplate DataType="{x:Type local:LoginViewModel}">
+            
+            <DataTemplate DataType="{x:Type local:LoginViewModel}">
             <views:LoginView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:RegisterViewModel}">

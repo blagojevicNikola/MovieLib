@@ -22,13 +22,13 @@ namespace MovieLib
         public ICommand ToMoviesCommand { get; set; }
         public ICommand ToUsersCommand { get; set; }
         public ICommand ToSettingsCommand { get; set; }
-        public AdminMainViewModel(NavigationStore navigationStore, Admin admin)
+        public AdminMainViewModel(NavigationStore mainWindowNav,NavigationStore navigationStore, Admin admin)
         {
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModelChanged += CurrentPropertyChanged;
             ToMoviesCommand = new NavigateCommand<MoviesAdminViewModel>(navigationStore, () => new MoviesAdminViewModel(navigationStore,admin));
             ToUsersCommand = new NavigateCommand<UsersAdminViewModel>(navigationStore, () => new UsersAdminViewModel());
-            ToSettingsCommand = new RelyCommand(() => { });
+            ToSettingsCommand = new NavigateCommand<SettingsViewModel>(navigationStore, () => new SettingsViewModel(mainWindowNav, admin.Id!.Value));
             _admin = admin;
         }
 

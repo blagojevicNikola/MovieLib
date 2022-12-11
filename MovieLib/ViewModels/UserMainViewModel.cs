@@ -25,7 +25,7 @@ namespace MovieLib
             _navigationStore.CurrentViewModelChanged += CurrentPropertyChanged;
             ToMoviesCommand = new NavigateCommand<MoviesUserViewModel>(navigationStore, () => new MoviesUserViewModel(navigationStore, user));
             ToPlaylistsCommand = new NavigateCommand<PlaylistViewModel>(navigationStore, () => new PlaylistViewModel(navigationStore, user));
-            ToSettingsCommand = new NavigateCommand<SettingsViewModel>(navigationStore, () => new SettingsViewModel(mainWindowNav,user));
+            ToSettingsCommand = new NavigateCommand<SettingsViewModel>(navigationStore, () => new SettingsViewModel(mainWindowNav,user.Id!.Value));
             _user = user;
         }
 
