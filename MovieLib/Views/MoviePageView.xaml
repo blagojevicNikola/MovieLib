@@ -75,7 +75,7 @@
                                FontSize="34"
                                HorizontalAlignment="Right"
                                FontWeight="Medium"
-                               Foreground="White"/>
+                               Foreground="{DynamicResource FontColor}"/>
                     </Grid>
                     <Label Grid.Row="1"
                            Content="{Binding Movie.Director}"
@@ -84,12 +84,12 @@
                            FontStyle="Italic"
                            Padding="0"
                            FontWeight="UltraLight"
-                           Foreground="LightGray"/>
+                           Foreground="{DynamicResource FontColor}"/>
 
                     <TextBlock Grid.Row="2"
                                FontSize="19"
                                FontWeight="Light"
-                               Foreground="LightGray"
+                               Foreground="{DynamicResource FontColor}"
                                Text="{Binding Movie.Description}"
                                Margin="8,15,8,4"/>
                 </Grid>
@@ -156,9 +156,9 @@
                                   Grid.Row="2">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Grid>
+                                <Grid Margin="9,0,9,0">
                                     <Border BorderThickness="0,0,0,2"
-                                            Background="#737373"
+                                            Background="{DynamicResource ReviewBackgroundColor}"
                                             BorderBrush="LightGray"/>
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -174,38 +174,38 @@
                                                     Orientation="Horizontal">
                                         <Label Content="{Binding Username}"
                                                FontSize="22"
-                                               Foreground="White"/>
+                                               Foreground="{DynamicResource FontColor}"/>
                                             <Label Content="("
                                                VerticalAlignment="Center"
                                                Padding="0"
                                                FontSize="16"
-                                               Foreground="LightGray"
+                                               Foreground="{DynamicResource LightFontColor}"
                                                FontWeight="UltraLight"/>
                                             <Label Content="{Binding PostDate}"
                                                Padding="0"
                                                FontSize="16"
                                                VerticalAlignment="Center"
-                                               Foreground="LightGray"
+                                               Foreground="{DynamicResource LightFontColor}"
                                                FontWeight="UltraLight"/>
                                             <Label Content=")"
                                                VerticalAlignment="Center"
                                                Padding="0"
                                                FontSize="16"
-                                               Foreground="LightGray"
+                                               Foreground="{DynamicResource LightFontColor}"
                                                FontWeight="UltraLight"/>
                                         </StackPanel>
                                             <Label Grid.Column="1"
                                                Content="{Binding Rate}"
                                                FontWeight="SemiBold"
                                                FontSize="18"
-                                               Foreground="Gold"/>
+                                               Foreground="{DynamicResource ReviewRatingColor}"/>
                                         </Grid>
                                         <TextBlock Grid.Row="1"
                                                  Margin="9,9,9,9"
                                                  Text="{Binding Comment}"
                                                  FontSize="19"
                                                  TextWrapping="Wrap"
-                                                 Foreground="LightGray"/>
+                                                 Foreground="{DynamicResource LightFontColor}"/>
                                     </Grid>
                                 </Grid>
                             </DataTemplate>

@@ -5,6 +5,12 @@
     <SolidColorBrush x:Key="NavigationButtonHoverColor" Color="#f0f0f0"/>
     <SolidColorBrush x:Key="FontColor" Color="#1c1c1c"/>
     <SolidColorBrush x:Key="PromtTextColor" Color="#666666"/>
+    <SolidColorBrush x:Key="ReviewBackgroundColor" Color="White"/>
+    <SolidColorBrush x:Key="LightFontColor" Color="#545454"/>
+    <SolidColorBrush x:Key="ReviewRatingColor" Color="#D8B816"/>
+    <SolidColorBrush x:Key="PlaylistItemHoverColor" Color="White"/>
+    <SolidColorBrush x:Key="MovieCardBackground" Color="White"/>
+    <SolidColorBrush x:Key="OnClickColor" Color="#E8E8E8"/>
     <FontFamily x:Key="ThemeFontFamilyMedium">
         /Resources/Fonts/#Poppins
     </FontFamily>

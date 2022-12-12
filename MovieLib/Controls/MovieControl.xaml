@@ -21,7 +21,7 @@
                 <Border Height="200"
                         Name="buttonBorder"
             CornerRadius="14"
-            Background="LightGray"
+            Background="{DynamicResource MovieCardBackground}"
             Margin="0,16,9,0">
                     <Border.Effect>
                         <DropShadowEffect Opacity="0.29"
@@ -96,7 +96,7 @@
 
                 <ControlTemplate.Triggers>
                     <Trigger Property="IsPressed" Value="True">
-                        <Setter TargetName="buttonBorder" Property="Background" Value="DarkGray"/>
+                        <Setter TargetName="buttonBorder" Property="Background" Value="{DynamicResource OnClickColor}"/>
                     </Trigger>
                 </ControlTemplate.Triggers>
             </ControlTemplate>

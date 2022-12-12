@@ -58,7 +58,7 @@
                                            Text="{Binding Title}"
                                            FontSize="17"
                                            FontWeight="SemiBold"
-                                           Foreground="LightGray"/>
+                                           Foreground="{DynamicResource FontColor}"/>
                                             </StackPanel>
                                         </Border>
                                             <Button Height="20"
@@ -76,7 +76,7 @@
                                         <Setter Property="Background" Value="Transparent"/>
                                         <Style.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#757474"/>
+                                                <Setter Property="Background" Value="{DynamicResource PlaylistItemHoverColor}"/>
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>

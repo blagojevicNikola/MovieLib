@@ -246,5 +246,37 @@ namespace MovieLib.Repositories.Impl
                 }
             }
         }
+
+        public IEnumerable<Movie> GetAllOfType(int typeId, int userId)
+        {
+            using (var conn = this.GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = conn;
+                command.CommandText = "select * from movie_info m left outer join user_has_in_playlist u on m.id=u.Movie_id inner join movie_of_type t on m.id=t.Movie_id where Type_id=@typeId" +
+                    "where User_Person_id<>@user_id or User_Person_id is null";
+                command.CommandText = "select * from movie_info ";
+                command.Parameters.AddWithValue("@typeId", typeId);
+                command.Parameters.AddWithValue("@userId", userId);
+                conn.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                ObservableCollection<Movie> result = new ObservableCollection<Movie>();
+                while (reader.Read())
+                {
+                    DateTime? published = null;
+                    string? uri = null;
+                    if (!reader.IsDBNull(4))
+                    {
+                        published = reader.GetDateTime(4);
+                    }
+                    if (!reader.IsDBNull(5))
+                    {
+                        uri = reader.GetString(5);
+                    }
+                    result.Add(new Movie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), published, uri, reader.GetDecimal(6)));
+                }
+                return result;
+            }
+        }
     }
 }

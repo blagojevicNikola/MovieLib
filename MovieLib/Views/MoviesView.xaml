@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:MovieLib.Views" xmlns:movielib="clr-namespace:MovieLib" xmlns:controls="clr-namespace:MovieLib.Controls" d:DataContext="{d:DesignInstance Type=movielib:MoviesUserViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="1050">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Resources/Styles.xaml"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -40,8 +43,36 @@
 
         <ScrollViewer VerticalScrollBarVisibility="Auto"
                       Grid.Column="1">
-            <ItemsControl>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <RadioButton Style="{StaticResource AllMovieTypeListRadioButtonStyle}"
+                                     Grid.Row="0"
+                                     IsChecked="True"
+                                     Command="{Binding AllMoviesCommand}"
+                                     GroupName="g4"
+                                     Margin="9,40,9,9">
+                </RadioButton>
+                <ItemsControl ItemsSource="{Binding Types}"
+                          Grid.Row="1"
+                          Margin="0,0,0,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{StaticResource MovieTypeListRadioButtonStyle}"
+                                     Content="{Binding Name}"
+                                     Command="{Binding Path=DataContext.SelectTypeCommand, 
+                                     RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                     CommandParameter="{Binding}"
+                                     GroupName="g4"
+                                     Margin="9,0,9,9">
+                            
+                        </RadioButton>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
             </ItemsControl>
+            </Grid>
         </ScrollViewer>
     </Grid>
 </UserControl>
