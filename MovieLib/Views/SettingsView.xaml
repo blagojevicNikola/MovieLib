@@ -35,16 +35,19 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <Button Margin="3,20,0,3"
                         Height="40"
+                        Grid.Row="6"
                         Width="85"
                         Cursor="Hand"
                         Background="IndianRed"
                         Command="{Binding LogOutCommand}"
-                        HorizontalAlignment="Right">
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Template">
