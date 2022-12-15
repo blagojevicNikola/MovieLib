@@ -23,7 +23,7 @@ namespace MovieLib.Repositories.Impl
                 var reader = command.ExecuteReader();
                 if(reader.Read())
                 {
-                    return new Admin(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
+                    return new Admin(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
                 }
                 return null;
             }
@@ -54,20 +54,20 @@ namespace MovieLib.Repositories.Impl
             {
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = conn;
-                command.CommandText = "insert into person(Username, Password, Name, Surname) values(@username, @password, @name, @surname)";
+                command.CommandText = "insert into person(Username, Password, Name, Surname, Theme_id, Language_id) values(@username, @password, @name, @surname, @themeId, @languageId)";
                 command.Parameters.AddWithValue("@username", user.Username);
                 command.Parameters.AddWithValue("@name", user.Name);
                 command.Parameters.AddWithValue("@surname", user.Surname);
                 command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@theme", 1);
+                command.Parameters.AddWithValue("@language", 1);
                 conn.Open();
                 command.ExecuteNonQuery();
                 var lastInserted = command.LastInsertedId;
-                command.CommandText = "insert into user(Person_id, Blocked, Theme_id, Language_id) values(@id, @blocked, @theme, @language)";
+                command.CommandText = "insert into user(Person_id, Blocked) values(@id, @blocked)";
                 command.Parameters.Clear();
                 command.Parameters.AddWithValue("@id", lastInserted);
                 command.Parameters.AddWithValue("@blocked", false);
-                command.Parameters.AddWithValue("@theme", 1);
-                command.Parameters.AddWithValue("@language", 1);
                 command.ExecuteNonQuery();
                 command.CommandText = "select * from user_info where id=@id";
                 command.Parameters.Clear();

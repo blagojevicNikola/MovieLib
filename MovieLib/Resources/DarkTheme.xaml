@@ -11,6 +11,8 @@
     <SolidColorBrush x:Key="PlaylistItemHoverColor" Color="#757474"/>
     <SolidColorBrush x:Key="MovieCardBackground" Color="LightGray"/>
     <SolidColorBrush x:Key="OnClickColor" Color="DarkGray"/>
+    <SolidColorBrush x:Key="RemoveMovieButtonBackground" Color="LightGray"/>
+    <SolidColorBrush x:Key="RemoveMoveiButtonForeground" Color="#606060"/>
     <FontFamily x:Key="ThemeFontFamilyMedium">
         /Resources/Fonts/#Ubuntu
     </FontFamily>

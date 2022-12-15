@@ -253,9 +253,8 @@ namespace MovieLib.Repositories.Impl
             {
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = conn;
-                command.CommandText = "select * from movie_info m left outer join user_has_in_playlist u on m.id=u.Movie_id inner join movie_of_type t on m.id=t.Movie_id where Type_id=@typeId" +
-                    "where User_Person_id<>@user_id or User_Person_id is null";
-                command.CommandText = "select * from movie_info ";
+                command.CommandText = "select * from movie_info m inner join movie_of_type t on m.id=t.Movie_id left outer join user_has_in_playlist u on m.id=u.Movie_id " +
+                    "where User_Person_id<>@userId or User_Person_id is null and Type_id = @typeId";
                 command.Parameters.AddWithValue("@typeId", typeId);
                 command.Parameters.AddWithValue("@userId", userId);
                 conn.Open();

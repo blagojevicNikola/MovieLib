@@ -24,12 +24,12 @@ namespace MovieLib
         public ICommand ToSettingsCommand { get; set; }
         public AdminMainViewModel(NavigationStore mainWindowNav,NavigationStore navigationStore, Admin admin)
         {
+            _admin = admin;
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModelChanged += CurrentPropertyChanged;
             ToMoviesCommand = new NavigateCommand<MoviesAdminViewModel>(navigationStore, () => new MoviesAdminViewModel(navigationStore,admin));
             ToUsersCommand = new NavigateCommand<UsersAdminViewModel>(navigationStore, () => new UsersAdminViewModel());
-            ToSettingsCommand = new NavigateCommand<SettingsViewModel>(navigationStore, () => new SettingsViewModel(mainWindowNav, admin.Id!.Value));
-            _admin = admin;
+            ToSettingsCommand = new NavigateCommand<SettingsViewModel>(navigationStore, () => new SettingsViewModel(mainWindowNav, _admin));
         }
 
         private void CurrentPropertyChanged()

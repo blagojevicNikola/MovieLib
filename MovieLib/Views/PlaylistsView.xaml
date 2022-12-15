@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:MovieLib.Views" xmlns:movielib="clr-namespace:MovieLib" d:DataContext="{d:DesignInstance Type=movielib:PlaylistViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="1050">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Resources/Styles.xaml"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -61,8 +64,7 @@
                                            Foreground="{DynamicResource FontColor}"/>
                                             </StackPanel>
                                         </Border>
-                                            <Button Height="20"
-                                                Width="20"
+                                            <Button Style="{StaticResource RemoveFromPlaylistButtonStyle}"
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top"
                                                 Command="{Binding Path=DataContext.RemoveMovieCommand, 

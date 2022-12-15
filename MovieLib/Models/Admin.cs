@@ -6,18 +6,11 @@ using System.Threading.Tasks;
 
 namespace MovieLib.Models
 {
-    public class Admin
+    public class Admin:Person
     {
-        public int? Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Username { get; set; }
-        public Admin(int? id, string name, string surname, string username)
+        public Admin(int? id, string name, string surname, string username, string theme, string language):base(id,name,surname,username,theme,language)
         {
-            Id=id;
-            Name=name;
-            Surname=surname;
-            Username=username;
+
         }
     }
 }

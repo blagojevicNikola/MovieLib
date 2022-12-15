@@ -21,12 +21,12 @@ namespace MovieLib
 
         public UserMainViewModel(NavigationStore mainWindowNav, NavigationStore navigationStore, User user)
         {
+            _user = user;
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModelChanged += CurrentPropertyChanged;
             ToMoviesCommand = new NavigateCommand<MoviesUserViewModel>(navigationStore, () => new MoviesUserViewModel(navigationStore, user));
             ToPlaylistsCommand = new NavigateCommand<PlaylistViewModel>(navigationStore, () => new PlaylistViewModel(navigationStore, user));
-            ToSettingsCommand = new NavigateCommand<SettingsViewModel>(navigationStore, () => new SettingsViewModel(mainWindowNav,user.Id!.Value));
-            _user = user;
+            ToSettingsCommand = new NavigateCommand<SettingsViewModel>(navigationStore, () => new SettingsViewModel(mainWindowNav,_user));
         }
 
         private void CurrentPropertyChanged()
