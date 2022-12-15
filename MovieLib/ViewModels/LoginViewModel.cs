@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MovieLib
@@ -33,12 +34,14 @@ namespace MovieLib
         {
             RegisterCommand = new NavigateCommand<RegisterViewModel>(navigationStore, () => new RegisterViewModel(navigationStore));
             ToAdminViewCommand = new NavigateCommand<AdminMainViewModel>(navigationStore, () => {
+                preset(_admin);
                 NavigationStore navigationStore1 = new();
                 navigationStore1.CurrentViewModel = new MoviesAdminViewModel(navigationStore1, _admin);
                 return new AdminMainViewModel(navigationStore, navigationStore1, _admin);
             });
             ToUserViewCommand = new NavigateCommand<UserMainViewModel>(navigationStore, () =>
             {
+                preset(_user);
                 NavigationStore navigationStore2 = new();
                 navigationStore2.CurrentViewModel = new MoviesUserViewModel(navigationStore2, _user);
                 return new UserMainViewModel(navigationStore, navigationStore2, _user);
@@ -89,6 +92,53 @@ namespace MovieLib
                 Error = "";
                 return true;
             }
+        }
+
+        private void preset(Person person)
+        {
+            Application.Current.Resources.MergedDictionaries[0].Clear();
+            Application.Current.Resources.MergedDictionaries[1].Clear();
+            //Application.Current.Resources.MergedDictionaries[1].Clear();
+            ResourceDictionary darkRes = new ResourceDictionary();
+            darkRes.Source = new Uri("/Resources/DarkTheme.xaml", UriKind.Relative);
+            ResourceDictionary lightRes = new ResourceDictionary();
+            lightRes.Source = new Uri("/Resources/LightTheme.xaml", UriKind.Relative);
+            ResourceDictionary serbianRes = new ResourceDictionary();
+            serbianRes.Source = new Uri("/Resources/SerbianLanguage.xaml", UriKind.Relative);
+            ResourceDictionary englishRes = new ResourceDictionary();
+            englishRes.Source = new Uri("/Resources/EnglishLanguage.xaml", UriKind.Relative);
+            if (person.Language!="srb")
+            {
+                Application.Current.Resources.MergedDictionaries[0].MergedDictionaries.Add(serbianRes);
+                Application.Current.Resources.MergedDictionaries[0].MergedDictionaries.Add(englishRes);
+            }
+            else
+            {
+                Application.Current.Resources.MergedDictionaries[0].MergedDictionaries.Add(englishRes);
+                Application.Current.Resources.MergedDictionaries[0].MergedDictionaries.Add(serbianRes);
+            }
+            switch (person.Theme)
+            {
+                case "Dark":
+                    {
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(lightRes);
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(darkRes);
+                        break;
+                    }
+                case "Light":
+                    {
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(darkRes);
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(lightRes);
+                        break;
+                    }
+                default:
+                    {
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(lightRes);
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(darkRes);
+                        break;
+                    }
+            }
+
         }
     }
 }

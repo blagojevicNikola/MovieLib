@@ -45,6 +45,7 @@
                         Width="85"
                         Cursor="Hand"
                         Background="IndianRed"
+                        Click="Button_Click"
                         Command="{Binding LogOutCommand}"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom">
@@ -82,13 +83,17 @@
                             Margin="20"
                             Grid.Row="2">
                     <RadioButton Background="#1a1a1a"
+                                 Command="{Binding SetThemeCommand}"
+                                 CommandParameter="{Binding DarkDesc}"
                                  Checked="RadioButton_Checked_2"
-                                 Style="{StaticResource ThemeRadioButtonStyle}">
+                                 Style="{StaticResource DarkThemeRadioButtonStyle}">
                         <Label Content="{DynamicResource DarkText}"
                                FontSize="17"
                                FontWeight="SemiBold"/>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource ThemeRadioButtonStyle}"
+                    <RadioButton Style="{StaticResource LightThemeRadioButtonStyle}"
+                                 Command="{Binding SetThemeCommand}"
+                                 CommandParameter="{Binding LightDesc}"
                                  Background="LightGray"
                                  Checked="RadioButton_Checked_3"
                                  Margin="70,0,0,0">
@@ -96,7 +101,7 @@
                                FontSize="17"
                                FontWeight="SemiBold"/>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource ThemeRadioButtonStyle}"
+                    <RadioButton Style="{StaticResource BlueThemeRadioButtonStyle}"
                                  Background="CadetBlue"
                                  Margin="70,0,0,0">
                         <Label Content="{DynamicResource BlueText}"
@@ -116,15 +121,19 @@
                             Grid.Row="4">
                     <RadioButton 
                                  Checked="RadioButton_Checked"
-                                 Style="{StaticResource LanguageRadioButtonStyle}">
+                                 Command ="{Binding SetLanguageCommand}"
+                                 CommandParameter="{Binding EnglishDesc}"
+                                 Style="{StaticResource EnglishLanguageRadioButtonStyle}">
                         <Label Content="{DynamicResource EnglishText}"
                                FontSize="17"
                                FontWeight="SemiBold"
                                Foreground="Black"/>
                     </RadioButton>
                     <RadioButton Checked="RadioButton_Checked_1"
+                                 Command ="{Binding SetLanguageCommand}"
+                                 CommandParameter="{Binding SerbianDesc}"
                                  Margin="50,0,0,0"
-                                 Style="{StaticResource LanguageRadioButtonStyle}">
+                                 Style="{StaticResource SerbianLanguageRadioButtonStyle}">
                         <Label Content="{DynamicResource SerbianText}"
                                FontSize="17"
                                FontWeight="SemiBold"

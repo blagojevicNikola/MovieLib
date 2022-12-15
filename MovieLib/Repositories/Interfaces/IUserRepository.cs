@@ -13,7 +13,8 @@ namespace MovieLib.Repositories.Interfaces
         public bool BlockUser(int id);
         public bool UnblockUser(int id);
         public bool RemoveMovieFromPlaylist(int movieId, int userId);
-
+        public void UpdateLanguage(int languageId, int personId);
+        public void UpdateTheme(int themeId, int personId);
         public bool AddMovieToPlaylist(Movie movie, User user);
     }
 }

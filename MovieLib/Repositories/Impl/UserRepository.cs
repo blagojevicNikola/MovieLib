@@ -88,5 +88,33 @@ namespace MovieLib.Repositories.Impl
                 return true;
             }
         }
+
+        public void UpdateLanguage(int languageId, int personId)
+        {
+            using(var conn=this.GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = conn;
+                command.CommandText = "update person set Language_id=@languageId where id=@id";
+                command.Parameters.AddWithValue("@id", personId);
+                command.Parameters.AddWithValue("@languageId", languageId);
+                conn.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateTheme(int themeId, int personId)
+        {
+            using (var conn = this.GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = conn;
+                command.CommandText = "update person set Language_id=@themeId where id=@id";
+                command.Parameters.AddWithValue("@id", personId);
+                command.Parameters.AddWithValue("@themeId", themeId);
+                conn.Open();
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

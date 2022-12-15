@@ -27,37 +27,42 @@ namespace MovieLib.Views
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            Application.Current.Resources.MergedDictionaries[0].Remove(Application.Current.Resources.MergedDictionaries[0]);
+            Application.Current.Resources.MergedDictionaries[0].MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries[0].MergedDictionaries[0]);
             //Application.Current.Resources.MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries.find)
             ResourceDictionary newRes = new ResourceDictionary();
             newRes.Source = new Uri("/Resources/EnglishLanguage.xaml", UriKind.Relative);
-            Application.Current.Resources.MergedDictionaries.Add(newRes);
+            Application.Current.Resources.MergedDictionaries[0].MergedDictionaries.Add(newRes);
         }
 
         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
-            Application.Current.Resources.MergedDictionaries[0].Remove(Application.Current.Resources.MergedDictionaries[0]);
+            Application.Current.Resources.MergedDictionaries[0].MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries[0].MergedDictionaries[0]);
             ResourceDictionary newRes = new ResourceDictionary();
             newRes.Source = new Uri("/Resources/SerbianLanguage.xaml",  UriKind.Relative);
-            Application.Current.Resources.MergedDictionaries.Add(newRes);
+            Application.Current.Resources.MergedDictionaries[0].MergedDictionaries.Add(newRes);
         }
 
         private void RadioButton_Checked_2(object sender, RoutedEventArgs e)
         {
-            Application.Current.Resources.MergedDictionaries[1].Remove(Application.Current.Resources.MergedDictionaries[0]);
+            Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries[1].MergedDictionaries[0]);
             //Application.Current.Resources.MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries.find)
             ResourceDictionary newRes = new ResourceDictionary();
             newRes.Source = new Uri("/Resources/DarkTheme.xaml", UriKind.Relative);
-            Application.Current.Resources.MergedDictionaries.Add(newRes);
+            Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(newRes);
         }
 
         private void RadioButton_Checked_3(object sender, RoutedEventArgs e)
         {
-            Application.Current.Resources.MergedDictionaries[1].Remove(Application.Current.Resources.MergedDictionaries[0]);
+            Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries[1].MergedDictionaries[0]);
             //Application.Current.Resources.MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries.find)
             ResourceDictionary newRes = new ResourceDictionary();
             newRes.Source = new Uri("/Resources/LightTheme.xaml", UriKind.Relative);
-            Application.Current.Resources.MergedDictionaries.Add(newRes);
+            Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(newRes);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
