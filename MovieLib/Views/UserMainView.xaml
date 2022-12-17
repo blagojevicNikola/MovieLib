@@ -38,6 +38,7 @@
                                  Fill="White"/>
                         <TextBlock Text="{Binding User.Username}"
                                    VerticalAlignment="Center"
+                                   FontWeight="SemiBold"
                                    FontSize="18"/>
                     </StackPanel>
                     <RadioButton Grid.Row="1"

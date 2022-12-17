@@ -59,5 +59,26 @@ namespace MovieLib.Repositories.Impl
                 return results;
             }
         }
+
+        public IEnumerable<MovieType> GetMovieTypes(int movieId)
+        {
+            using (var conn = this.GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand();
+                command.CommandText = "select * from type t inner join movie_of_type o on o.Type_id=t.id where Movie_id=@movieId";
+                command.Parameters.AddWithValue("@movieId", movieId);
+                command.Connection = conn;
+                conn.Open();
+                ObservableCollection<MovieType> results = new ObservableCollection<MovieType>();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        results.Add(new MovieType(reader.GetInt32(0), reader.GetString(1), true));
+                    }
+                }
+                return results;
+            }
+        }
     }
 }

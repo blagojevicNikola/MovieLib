@@ -109,7 +109,7 @@ namespace MovieLib.Repositories.Impl
             {
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = conn;
-                command.CommandText = "update person set Language_id=@themeId where id=@id";
+                command.CommandText = "update person set Theme_id=@themeId where id=@id";
                 command.Parameters.AddWithValue("@id", personId);
                 command.Parameters.AddWithValue("@themeId", themeId);
                 conn.Open();

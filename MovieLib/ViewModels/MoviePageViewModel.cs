@@ -25,6 +25,7 @@ namespace MovieLib
         public ICommand BackToMoviesCommand { get; set; }
         public ICommand PostReviewCommand { get; set; }
         public ObservableCollection<Review> Reviews { get; set; }
+        public ObservableCollection<MovieType> Types { get; set; }
         public MoviePageViewModel(NavigationStore navigationStore, User user, Movie movie, bool fromPlaylist)
         {
             _user = user;
@@ -39,7 +40,9 @@ namespace MovieLib
             Movie = movie;
             _comment = "";
             IReviewRepository reviewRep = new ReviewRepository();
+            IMovieTypeRepository movieTypeRep = new MovieTypeRepository();
             Reviews = (ObservableCollection<Review>)reviewRep.GetAll(movie.Id!.Value);
+            Types = (ObservableCollection<MovieType>)movieTypeRep.GetMovieTypes(movie.Id!.Value);
             PostReviewCommand = new RelyCommand(() => postReview());
         }
 

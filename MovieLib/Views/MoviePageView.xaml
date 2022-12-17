@@ -52,6 +52,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
@@ -86,8 +87,23 @@
                            Padding="0"
                            FontWeight="UltraLight"
                            Foreground="{DynamicResource FontColor}"/>
-
-                    <TextBlock Grid.Row="2"
+                    <ItemsControl Grid.Row="2"
+                                  ItemsSource="{Binding Types}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding Name}"
+                                           FontSize="16"
+                                           FontStyle="Italic"
+                                           Margin="3,4,3,0"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    <TextBlock Grid.Row="3"
                                FontSize="19"
                                TextWrapping="Wrap"
                                FontWeight="Light"

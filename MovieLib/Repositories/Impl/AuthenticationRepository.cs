@@ -16,14 +16,14 @@ namespace MovieLib.Repositories.Impl
             using(var conn = this.GetConnection()) {
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = conn;
-                command.CommandText = "select * from person p inner join admin a on p.id=a.Person_id where Username=@username and Password=@password";
+                command.CommandText = "select * from admin_info where Username=@username and Password=@password";
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
                 conn.Open();
                 var reader = command.ExecuteReader();
                 if(reader.Read())
                 {
-                    return new Admin(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
+                    return new Admin(reader.GetInt32(0), reader.GetString(3), reader.GetString(4), reader.GetString(1), reader.GetString(5), reader.GetString(6));
                 }
                 return null;
             }
@@ -59,8 +59,8 @@ namespace MovieLib.Repositories.Impl
                 command.Parameters.AddWithValue("@name", user.Name);
                 command.Parameters.AddWithValue("@surname", user.Surname);
                 command.Parameters.AddWithValue("@password", password);
-                command.Parameters.AddWithValue("@theme", 1);
-                command.Parameters.AddWithValue("@language", 1);
+                command.Parameters.AddWithValue("@themeId", 1);
+                command.Parameters.AddWithValue("@languageId", 1);
                 conn.Open();
                 command.ExecuteNonQuery();
                 var lastInserted = command.LastInsertedId;

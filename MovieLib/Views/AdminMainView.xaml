@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieLib.Views" xmlns:movielib="clr-namespace:MovieLib" d:DataContext="{d:DesignInstance Type=movielib:AdminMainViewModel}"
+             xmlns:ic="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="1200">
     <UserControl.Resources>
@@ -30,11 +31,20 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0"
                                 Orientation="Horizontal">
-                        <Ellipse Height="50" Width="50"
+                        <Grid>
+                            <Ellipse Height="50" Width="50"
                                  Margin="15,5,15,5"
                                  Fill="White"/>
+                            <ic:PackIconMaterial Kind="account"
+                                                 HorizontalAlignment="Center"
+                                                 VerticalAlignment="Center"
+                                                 Foreground="#545454"
+                                                 Height="35"
+                                                 Width="35"/>
+                        </Grid>
                         <TextBlock Text="{Binding Admin.Username}"
                                    VerticalAlignment="Center"
+                                   FontWeight="SemiBold"
                                    FontSize="18"/>
                     </StackPanel>
                     <RadioButton Grid.Row="1"
