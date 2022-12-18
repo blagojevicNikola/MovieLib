@@ -177,7 +177,7 @@
                 <Setter Property="Background" Value="{DynamicResource NavigationButtonHoverColor}"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#c0e3fa"/>
+                <Setter Property="Background" Value="{DynamicResource NavigationButtonCheckedColor}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -215,7 +215,7 @@
                 <Setter Property="Background" Value="{DynamicResource NavigationButtonHoverColor}"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#c0e3fa"/>
+                <Setter Property="Background" Value="{DynamicResource NavigationButtonCheckedColor}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -253,7 +253,7 @@
                 <Setter Property="Background" Value="{DynamicResource NavigationButtonHoverColor}"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#c0e3fa"/>
+                <Setter Property="Background" Value="{DynamicResource NavigationButtonCheckedColor}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -291,7 +291,7 @@
                 <Setter Property="Background" Value="{DynamicResource NavigationButtonHoverColor}"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#c0e3fa"/>
+                <Setter Property="Background" Value="{DynamicResource NavigationButtonCheckedColor}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
