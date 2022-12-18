@@ -13,6 +13,7 @@
     <SolidColorBrush x:Key="OnClickColor" Color="#E8E8E8"/>
     <SolidColorBrush x:Key="RemoveMovieButtonBackground" Color="#666666"/>
     <SolidColorBrush x:Key="RemoveMoveiButtonForeground" Color="#f0f0f0"/>
+    <SolidColorBrush x:Key="AdminFieldFontColor" Color="#666666"/>
     <FontFamily x:Key="ThemeFontFamilyMedium">
         /Resources/Fonts/#Poppins
     </FontFamily>

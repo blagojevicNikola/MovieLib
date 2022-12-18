@@ -17,6 +17,7 @@ namespace MovieLib
 
         public string LightDesc { get; } = "Light";
         public string DarkDesc { get; } = "Dark";
+        public string CustomDesc { get; } = "Custom";
         public string SerbianDesc { get; } = "Serbian";
         public string EnglishDesc { get; } = "English";
         public bool Light { get; set; } = false;
@@ -55,7 +56,7 @@ namespace MovieLib
                 case "Dark":
                     Dark= true;
                     break;
-                case "Blue":
+                case "Custom":
                     Blue= true;
                     break;
                 default:
@@ -95,10 +96,10 @@ namespace MovieLib
                         _person.Theme = "Light";
                         break;
                     }
-                case "Blue":
+                case "Custom":
                     {
                         userRep.UpdateTheme(3, _person.Id!.Value);
-                        _person.Theme = "Blue";
+                        _person.Theme = "Custom";
                         break;
                     }
                 default:

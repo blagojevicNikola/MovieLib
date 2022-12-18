@@ -33,9 +33,17 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0"
                                 Orientation="Horizontal">
-                        <Ellipse Height="50" Width="50"
+                        <Grid>
+                            <Ellipse Height="50" Width="50"
                                  Margin="15,5,15,5"
                                  Fill="White"/>
+                            <ic:PackIconMaterial Kind="account"
+                                                 HorizontalAlignment="Center"
+                                                 VerticalAlignment="Center"
+                                                 Foreground="#545454"
+                                                 Height="35"
+                                                 Width="35"/>
+                        </Grid>
                         <TextBlock Text="{Binding User.Username}"
                                    VerticalAlignment="Center"
                                    FontWeight="SemiBold"

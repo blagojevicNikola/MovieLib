@@ -64,5 +64,14 @@ namespace MovieLib.Views
         {
 
         }
+
+        private void RadioButton_Checked_4(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries[1].MergedDictionaries[0]);
+            //Application.Current.Resources.MergedDictionaries.Remove(Application.Current.Resources.MergedDictionaries.find)
+            ResourceDictionary newRes = new ResourceDictionary();
+            newRes.Source = new Uri("/Resources/CustomTheme.xaml", UriKind.Relative);
+            Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(newRes);
+        }
     }
 }

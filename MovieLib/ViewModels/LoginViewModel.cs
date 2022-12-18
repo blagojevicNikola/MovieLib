@@ -103,6 +103,8 @@ namespace MovieLib
             darkRes.Source = new Uri("/Resources/DarkTheme.xaml", UriKind.Relative);
             ResourceDictionary lightRes = new ResourceDictionary();
             lightRes.Source = new Uri("/Resources/LightTheme.xaml", UriKind.Relative);
+            ResourceDictionary customRes = new ResourceDictionary();
+            customRes.Source = new Uri("/Resources/CustomTheme.xaml", UriKind.Relative);
             ResourceDictionary serbianRes = new ResourceDictionary();
             serbianRes.Source = new Uri("/Resources/SerbianLanguage.xaml", UriKind.Relative);
             ResourceDictionary englishRes = new ResourceDictionary();
@@ -121,18 +123,28 @@ namespace MovieLib
             {
                 case "Dark":
                     {
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(customRes);
                         Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(lightRes);
                         Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(darkRes);
                         break;
                     }
                 case "Light":
                     {
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(customRes);
                         Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(darkRes);
                         Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(lightRes);
                         break;
                     }
+                case "Custom":
+                    {
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(darkRes);
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(lightRes);
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(customRes);
+                        break;
+                    }
                 default:
                     {
+                        Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(customRes);
                         Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(lightRes);
                         Application.Current.Resources.MergedDictionaries[1].MergedDictionaries.Add(darkRes);
                         break;

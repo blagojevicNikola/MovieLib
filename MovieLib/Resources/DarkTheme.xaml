@@ -13,6 +13,7 @@
     <SolidColorBrush x:Key="OnClickColor" Color="DarkGray"/>
     <SolidColorBrush x:Key="RemoveMovieButtonBackground" Color="LightGray"/>
     <SolidColorBrush x:Key="RemoveMoveiButtonForeground" Color="#606060"/>
+    <SolidColorBrush x:Key="AdminFieldFontColor" Color="LightGray"/>
     <FontFamily x:Key="ThemeFontFamilyMedium">
         /Resources/Fonts/#Ubuntu
     </FontFamily>

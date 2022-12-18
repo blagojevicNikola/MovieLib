@@ -98,3 +98,4 @@ C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Resources
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Resources\SerbianLanguage.baml
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Resources\DarkTheme.baml
 C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Resources\LightTheme.baml
+C:\Users\nikol\source\repos\MovieLib\MovieLib\obj\Debug\net6.0-windows\Resources\CustomTheme.baml

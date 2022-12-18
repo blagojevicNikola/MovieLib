@@ -102,7 +102,10 @@
                                FontWeight="SemiBold"/>
                     </RadioButton>
                     <RadioButton Style="{StaticResource BlueThemeRadioButtonStyle}"
+                                 Command="{Binding SetThemeCommand}"
+                                 CommandParameter="{Binding CustomDesc}"
                                  Background="CadetBlue"
+                                 Checked="RadioButton_Checked_4"
                                  Margin="70,0,0,0">
                         <Label Content="{DynamicResource BlueText}"
                                FontSize="17"
