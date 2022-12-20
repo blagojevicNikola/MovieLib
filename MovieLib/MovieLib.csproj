@@ -16,6 +16,7 @@
     <None Remove="Resources\Fonts\Ubuntu-Medium.ttf" />
     <None Remove="Resources\Fonts\Ubuntu-Regular.ttf" />
     <None Remove="Resources\Images\MovieLibIcon.png" />
+    <None Remove="Resources\Images\MovieLibVector.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +33,7 @@
     <Resource Include="Resources\Fonts\Ubuntu-Medium.ttf" />
     <Resource Include="Resources\Fonts\Ubuntu-Regular.ttf" />
     <Resource Include="Resources\Images\MovieLibIcon.png" />
+    <Resource Include="Resources\Images\MovieLibVector.png" />
   </ItemGroup>
 
 </Project>

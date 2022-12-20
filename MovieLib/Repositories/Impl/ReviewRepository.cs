@@ -4,6 +4,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace MovieLib.Repositories.Impl
                 command.Parameters.AddWithValue("@userId", userId);
                 command.Parameters.AddWithValue("@rate", decimal.Parse(review.Rate));
                 command.Parameters.AddWithValue("@comment", review.Comment);
-                command.Parameters.AddWithValue("@date", DateTime.Parse(review.PostDate));
+                command.Parameters.AddWithValue("@date", DateTime.ParseExact(review.PostDate, "dd/MM/yyyy", null));
                 conn.Open();
                 command.ExecuteNonQuery();
                 command.CommandText = "select * from review_info where Movie_id=@movieId and User_Person_id=@userId";

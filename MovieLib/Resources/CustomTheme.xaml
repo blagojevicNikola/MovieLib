@@ -2,15 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="MainBackgroundColor" Color="#606060"/>
     <SolidColorBrush x:Key="LightMainBackgroundColor" Color="#8cffdb"/>
-    <SolidColorBrush x:Key="NavigationButtonHoverColor" Color="#f0f0f0"/>
-    <SolidColorBrush x:Key="NavigationButtonCheckedColor" Color="#baffe9"/>
+    <SolidColorBrush x:Key="NavigationButtonHoverColor" Color="#c0fce9"/>
+    <SolidColorBrush x:Key="NavigationButtonCheckedColor" Color="#d9fff3"/>
     <SolidColorBrush x:Key="FontColor" Color="#f5f5f5"/>
     <SolidColorBrush x:Key="PromtTextColor" Color="LightGray"/>
-    <SolidColorBrush x:Key="ReviewBackgroundColor" Color="#737373"/>
+    <SolidColorBrush x:Key="ReviewBackgroundColor" Color="#d9fff3"/>
     <SolidColorBrush x:Key="LightFontColor" Color="LightGray"/>
     <SolidColorBrush x:Key="ReviewRatingColor" Color="Gold"/>
     <SolidColorBrush x:Key="PlaylistItemHoverColor" Color="#757474"/>
-    <SolidColorBrush x:Key="MovieCardBackground" Color="LightGray"/>
+    <SolidColorBrush x:Key="MovieCardBackground" Color="#d9fff3"/>
     <SolidColorBrush x:Key="OnClickColor" Color="DarkGray"/>
     <SolidColorBrush x:Key="RemoveMovieButtonBackground" Color="LightGray"/>
     <SolidColorBrush x:Key="RemoveMoveiButtonForeground" Color="#606060"/>

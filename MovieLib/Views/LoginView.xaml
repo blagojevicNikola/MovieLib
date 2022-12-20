@@ -73,7 +73,11 @@
                 </Grid>
                 <Border CornerRadius="0,15,15,0"
                     Grid.Column="1"
-                    Background="LightBlue"></Border>
+                    Background="LightBlue">
+                    <Image Height="300"
+                           Opacity="0.5"
+                           Source="/Resources/Images/MovieLibVector.png"/>
+                </Border>
             </Grid>
 
             <Grid VerticalAlignment="Top">
