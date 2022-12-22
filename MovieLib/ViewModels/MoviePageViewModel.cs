@@ -21,7 +21,7 @@ namespace MovieLib
         private int _rateIndex=0;
         public Movie Movie { get; set; }
         public string Comment { get { return _comment; } set { _comment = value; NotifyPropertyChanged("Comment"); } }
-        public int RateIndex { get { return _rateIndex; } set { _rateIndex = value; NotifyPropertyChanged("Rate"); } }
+        public int RateIndex { get { return _rateIndex; } set { _rateIndex = value; NotifyPropertyChanged("RateIndex"); } }
         public ICommand BackToMoviesCommand { get; set; }
         public ICommand PostReviewCommand { get; set; }
         public ObservableCollection<Review> Reviews { get; set; }

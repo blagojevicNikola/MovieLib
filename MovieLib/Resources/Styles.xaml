@@ -1044,4 +1044,30 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="FilterRadioButtonStyle" TargetType="RadioButton">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Border BorderBrush="{TemplateBinding RadioButton.Background}"
+                                CornerRadius="14"
+                                Padding="2"
+                                BorderThickness="2"/>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding RadioButton.Content}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="LightBlue"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

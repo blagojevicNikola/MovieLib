@@ -63,7 +63,7 @@
                        Fill="DarkGray"
                        Width="2"/>
             <TextBlock Grid.Column="6"
-                       Text="{Binding Published}"
+                       Text="{Binding Published, StringFormat={}{0:dd/MM/yyyy}}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="17"

@@ -12,7 +12,7 @@
         <ResourceDictionary Source="/Resources/Styles.xaml"/>
     </UserControl.Resources>
 
-    <Border Background="White"
+    <Border Background="#f5f5f5"
             CornerRadius="15">
         <Grid>
             <Grid>

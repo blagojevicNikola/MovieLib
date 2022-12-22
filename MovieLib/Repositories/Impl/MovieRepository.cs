@@ -121,13 +121,23 @@ namespace MovieLib.Repositories.Impl
             }
         }
 
-        public IEnumerable<Movie> GetAllOutsidePlaylist(int userId)
+        public IEnumerable<Movie> GetAllOutsidePlaylist(int userId, string filter)
         {
             using (var conn = this.GetConnection())
             {
                 MySqlCommand command = new MySqlCommand();
+                if(filter.Equals("Title"))
+                {
+                    command.CommandText = "select * from movie_info m left outer join user_has_in_playlist u on m.id=u.Movie_id where User_Person_id<>@user_id or User_Person_id is null order by Title asc";
+                }
+                else if(filter.Equals("Rating"))
+                {
+                    command.CommandText = "select * from movie_info m left outer join user_has_in_playlist u on m.id=u.Movie_id where User_Person_id<>@user_id or User_Person_id is null order by Rating desc";
+                }else
+                {
+                    command.CommandText = "select * from movie_info m left outer join user_has_in_playlist u on m.id=u.Movie_id where User_Person_id<>@user_id or User_Person_id is null order by PublishDate desc";
+                }
                 command.Connection = conn;
-                command.CommandText = "select * from movie_info m left outer join user_has_in_playlist u on m.id=u.Movie_id where User_Person_id<>@user_id or User_Person_id is null";
                 command.Parameters.AddWithValue("@user_id", userId);
                 conn.Open();
                 MySqlDataReader reader = command.ExecuteReader();
@@ -247,14 +257,27 @@ namespace MovieLib.Repositories.Impl
             }
         }
 
-        public IEnumerable<Movie> GetAllOfType(int typeId, int userId)
+        public IEnumerable<Movie> GetAllOfType(int typeId, int userId, string filter)
         {
             using (var conn = this.GetConnection())
             {
                 MySqlCommand command = new MySqlCommand();
+                if (filter.Equals("Title"))
+                {
+                    command.CommandText = "select * from movie_info m inner join movie_of_type t on m.id=t.Movie_id left outer join user_has_in_playlist u on m.id=u.Movie_id " +
+                    "where Type_id = @typeId and (User_Person_id<>@userId or User_Person_id is null) order by Title asc";
+                }
+                else if (filter.Equals("Rating"))
+                {
+                    command.CommandText = "select * from movie_info m inner join movie_of_type t on m.id=t.Movie_id left outer join user_has_in_playlist u on m.id=u.Movie_id " +
+                    "where Type_id = @typeId and (User_Person_id<>@userId or User_Person_id is null) order by Rating desc";
+                }
+                else
+                {
+                    command.CommandText = "select * from movie_info m inner join movie_of_type t on m.id=t.Movie_id left outer join user_has_in_playlist u on m.id=u.Movie_id " +
+                    "where Type_id = @typeId and (User_Person_id<>@userId or User_Person_id is null) order by PublishDate desc";
+                }
                 command.Connection = conn;
-                command.CommandText = "select * from movie_info m inner join movie_of_type t on m.id=t.Movie_id left outer join user_has_in_playlist u on m.id=u.Movie_id " +
-                    "where User_Person_id<>@userId or User_Person_id is null and Type_id = @typeId";
                 command.Parameters.AddWithValue("@typeId", typeId);
                 command.Parameters.AddWithValue("@userId", userId);
                 conn.Open();
