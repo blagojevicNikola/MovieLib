@@ -89,6 +89,7 @@
                                  Style="{StaticResource DarkThemeRadioButtonStyle}">
                         <Label Content="{DynamicResource DarkText}"
                                FontSize="17"
+                               Foreground="{DynamicResource SecondFontColor}"
                                FontWeight="SemiBold"/>
                     </RadioButton>
                     <RadioButton Style="{StaticResource LightThemeRadioButtonStyle}"
@@ -99,6 +100,7 @@
                                  Margin="70,0,0,0">
                         <Label Content="{DynamicResource LightText}"
                                FontSize="17"
+                               Foreground="{DynamicResource SecondFontColor}"
                                FontWeight="SemiBold"/>
                     </RadioButton>
                     <RadioButton Style="{StaticResource BlueThemeRadioButtonStyle}"
@@ -109,6 +111,7 @@
                                  Margin="70,0,0,0">
                         <Label Content="{DynamicResource BlueText}"
                                FontSize="17"
+                               Foreground="{DynamicResource SecondFontColor}"
                                FontWeight="SemiBold"/>
                     </RadioButton>
                 </StackPanel>
@@ -130,7 +133,7 @@
                         <Label Content="{DynamicResource EnglishText}"
                                FontSize="17"
                                FontWeight="SemiBold"
-                               Foreground="Black"/>
+                               Foreground="{DynamicResource SecondFontColor}"/>
                     </RadioButton>
                     <RadioButton Checked="RadioButton_Checked_1"
                                  Command ="{Binding SetLanguageCommand}"
@@ -140,7 +143,7 @@
                         <Label Content="{DynamicResource SerbianText}"
                                FontSize="17"
                                FontWeight="SemiBold"
-                               Foreground="Black"/>
+                               Foreground="{DynamicResource SecondFontColor}"/>
                     </RadioButton>
                 </StackPanel>
             </Grid>

@@ -5,6 +5,7 @@
     <SolidColorBrush x:Key="NavigationButtonHoverColor" Color="#c0fce9"/>
     <SolidColorBrush x:Key="NavigationButtonCheckedColor" Color="#d9fff3"/>
     <SolidColorBrush x:Key="FontColor" Color="#f5f5f5"/>
+    <SolidColorBrush x:Key="SecondFontColor" Color="#f5f5f5"/>
     <SolidColorBrush x:Key="PromtTextColor" Color="LightGray"/>
     <SolidColorBrush x:Key="ReviewBackgroundColor" Color="#737373"/>
     <SolidColorBrush x:Key="LightFontColor" Color="LightGray"/>
