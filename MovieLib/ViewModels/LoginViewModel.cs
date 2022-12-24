@@ -46,36 +46,28 @@ namespace MovieLib
                 navigationStore2.CurrentViewModel = new MoviesUserViewModel(navigationStore2, _user);
                 return new UserMainViewModel(navigationStore, navigationStore2, _user);
             });
-            LoginCommand = new RelyCommand(() => loggingIn());
+            LoginCommand = new AsyncRelayCommand(loggingIn, (ex) => { MessageBox.Show("Error while logging in!"); });
         }
 
 
-        private void loggingIn()
+        private async Task loggingIn()
         {
             IAuthenticationRepository rep = new AuthenticationRepository();
-            try
+            
+            Admin? admin = await rep.LoginAdmin(Username, Password);
+            if (admin is null)
             {
-                Admin? admin = rep.LoginAdmin(Username, Password);
-                if (admin is null)
+                User? user = await rep.LoginUser(Username, Password);
+                if (user is not null)
                 {
-                    User? user = rep.LoginUser(Username, Password);
-                    if (user is not null)
-                    {
-                        _user = user;
-                        ToUserViewCommand.Execute(null);
-                    }
-
+                    _user = user;
+                    ToUserViewCommand.Execute(null);
                 }
-                else
-                {
-                    _admin = admin;
-                    ToAdminViewCommand.Execute(null);
-                }
-
             }
-            catch(Exception e)
+            else
             {
-                Debug.WriteLine(e.Message);
+                _admin = admin;
+                ToAdminViewCommand.Execute(null);
             }
             
         }

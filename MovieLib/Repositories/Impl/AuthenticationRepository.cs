@@ -11,7 +11,7 @@ namespace MovieLib.Repositories.Impl
 {
     public class AuthenticationRepository : RepositoryBase, IAuthenticationRepository
     {
-        public Admin? LoginAdmin(string username, string password)
+        public async Task<Admin?> LoginAdmin(string username, string password)
         {
             using(var conn = this.GetConnection()) {
                 MySqlCommand command = new MySqlCommand();
@@ -20,7 +20,7 @@ namespace MovieLib.Repositories.Impl
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
                 conn.Open();
-                var reader = command.ExecuteReader();
+                var reader = await command.ExecuteReaderAsync();
                 if(reader.Read())
                 {
                     return new Admin(reader.GetInt32(0), reader.GetString(3), reader.GetString(4), reader.GetString(1), reader.GetString(5), reader.GetString(6));
@@ -29,7 +29,7 @@ namespace MovieLib.Repositories.Impl
             }
         }
 
-        public User? LoginUser(string username, string password)
+        public async Task<User?> LoginUser(string username, string password)
         {
             using (var conn = this.GetConnection())
             {
@@ -39,7 +39,7 @@ namespace MovieLib.Repositories.Impl
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
                 conn.Open();
-                MySqlDataReader reader = command.ExecuteReader();
+                var reader = await command.ExecuteReaderAsync();
                 if (reader.Read())
                 {
                     return new User(reader.GetInt32(0), reader.GetString(3), reader.GetString(4), reader.GetString(1), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7));

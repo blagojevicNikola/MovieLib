@@ -9,8 +9,8 @@ namespace MovieLib.Repositories.Interfaces
 {
     public interface IAuthenticationRepository
     {
-        public User? LoginUser(string username, string password);
-        public Admin? LoginAdmin(string username, string password);
+        public Task<User?> LoginUser(string username, string password);
+        public Task<Admin?> LoginAdmin(string username, string password);
         public User? RegisterUser(User user, string password);
     }
 }

@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\nikol\source\repos\MovieLib\MovieLib\App.xaml
 221518571963
 
-58-414865695
+601716359281
 234-398359361
 Controls\MovieAdminControl.xaml;Controls\MovieControl.xaml;Controls\UserAdminControl.xaml;MainWindow.xaml;Resources\CustomTheme.xaml;Resources\DarkTheme.xaml;Resources\EnglishLanguage.xaml;Resources\LightTheme.xaml;Resources\SerbianLanguage.xaml;Resources\Styles.xaml;Views\AddMovieView.xaml;Views\AdminMainView.xaml;Views\EditMovieView.xaml;Views\LoginView.xaml;Views\MoviePageView.xaml;Views\MoviesAdminView.xaml;Views\MoviesView.xaml;Views\PlaylistsView.xaml;Views\RegisterView.xaml;Views\SettingsView.xaml;Views\UserMainView.xaml;Views\UsersAdminView.xaml;
 
-True
+False
 
