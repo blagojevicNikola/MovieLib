@@ -3,8 +3,10 @@ using MovieLib.Repositories.Interfaces;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MovieLib.Repositories.Impl
@@ -21,7 +23,7 @@ namespace MovieLib.Repositories.Impl
                 command.Parameters.AddWithValue("@password", password);
                 conn.Open();
                 var reader = await command.ExecuteReaderAsync();
-                if(reader.Read())
+                if (reader.Read())
                 {
                     return new Admin(reader.GetInt32(0), reader.GetString(3), reader.GetString(4), reader.GetString(1), reader.GetString(5), reader.GetString(6));
                 }
@@ -48,7 +50,7 @@ namespace MovieLib.Repositories.Impl
             }
         }
 
-        public User? RegisterUser(User user, string password)
+        public async Task<User?> RegisterUser(User user, string password)
         {
             using (var conn = this.GetConnection())
             {
@@ -72,7 +74,7 @@ namespace MovieLib.Repositories.Impl
                 command.CommandText = "select * from user_info where id=@id";
                 command.Parameters.Clear();
                 command.Parameters.AddWithValue("@id", lastInserted);
-                MySqlDataReader reader = command.ExecuteReader();
+                var reader = await command.ExecuteReaderAsync();
                 if (reader.Read())
                 {
                     return new User(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7));

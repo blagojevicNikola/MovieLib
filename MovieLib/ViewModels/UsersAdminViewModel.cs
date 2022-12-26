@@ -1,12 +1,14 @@
 ﻿using MovieLib.Models;
 using MovieLib.Repositories.Impl;
 using MovieLib.Repositories.Interfaces;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MovieLib
@@ -30,16 +32,29 @@ namespace MovieLib
             IUserRepository userRep = new UserRepository();
             if(!user.Blocked)
             {
-                if (userRep.BlockUser(user.Id!.Value))
+                try
                 {
-                    user.Blocked = true;
+                    if (userRep.BlockUser(user.Id!.Value))
+                    {
+                        user.Blocked = true;
+                    }
+                }catch(MySqlException)
+                {
+                    MessageBox.Show("Error while blocking a user!");
                 }
             }
             else
             {
-                if(userRep.UnblockUser(user.Id!.Value))
+                try
+                { 
+                    if(userRep.UnblockUser(user.Id!.Value))
+                    {
+                        user.Blocked= false;
+                    }
+                }
+                catch (MySqlException)
                 {
-                    user.Blocked= false;
+                    MessageBox.Show("Error while unblocking a user!");
                 }
             }
             

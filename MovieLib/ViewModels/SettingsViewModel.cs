@@ -2,11 +2,13 @@
 using MovieLib.Models;
 using MovieLib.Repositories.Impl;
 using MovieLib.Repositories.Interfaces;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MovieLib
@@ -68,44 +70,55 @@ namespace MovieLib
         private void setLanguage(string language)
         {
             IUserRepository userRep = new UserRepository();
-            if(language=="English")
+            try
             {
-                userRep.UpdateLanguage(1, _person.Id!.Value);
-                _person.Language = "en";
-            }
-            else
+                if (language == "English")
+                {
+                    userRep.UpdateLanguage(1, _person.Id!.Value);
+                    _person.Language = "en";
+                }
+                else
+                {
+                    userRep.UpdateLanguage(2, _person.Id!.Value);
+                    _person.Language = "srb";
+                }
+            }catch(MySqlException)
             {
-                userRep.UpdateLanguage(2, _person.Id!.Value);
-                _person.Language = "srb";
+                MessageBox.Show("Error while updating language preference!");
             }
         }
         private void setTheme(string theme)
         {
             IUserRepository userRep = new UserRepository();
-            switch (theme)
+            try
             {
-                case "Dark":
-                    {
-                        userRep.UpdateTheme(1, _person.Id!.Value);
-                        _person.Theme = "Dark";
+                switch (theme)
+                {
+                    case "Dark":
+                        {
+                            userRep.UpdateTheme(1, _person.Id!.Value);
+                            _person.Theme = "Dark";
+                            break;
+                        }
+                    case "Light":
+                        {
+                            userRep.UpdateTheme(2, _person.Id!.Value);
+                            _person.Theme = "Light";
+                            break;
+                        }
+                    case "Custom":
+                        {
+                            userRep.UpdateTheme(3, _person.Id!.Value);
+                            _person.Theme = "Custom";
+                            break;
+                        }
+                    default:
                         break;
-                    }
-                case "Light":
-                    {
-                        userRep.UpdateTheme(2, _person.Id!.Value);
-                        _person.Theme = "Light";
-                        break;
-                    }
-                case "Custom":
-                    {
-                        userRep.UpdateTheme(3, _person.Id!.Value);
-                        _person.Theme = "Custom";
-                        break;
-                    }
-                default:
-                    break;
+                }
+            }catch(MySqlException)
+            {
+                MessageBox.Show("Error while updating theme preference!");
             }
-
         }
     }
 }

@@ -57,6 +57,11 @@ namespace MovieLib
             {
                 published = DateTime.Parse(PublishDate);
             }
+            if (string.IsNullOrEmpty(Title) || string.IsNullOrEmpty(Director))
+            {
+                MessageBox.Show("Title/Director is empty!");
+                return;
+            }
             Movie updatedMovie = new Movie(Movie.Id, Title, Director, Description, published, Uri, decimal.Parse(Movie.Rating));
             List<MovieType> types = AllTypes.Where(s => s.Selected == true).ToList();
             try

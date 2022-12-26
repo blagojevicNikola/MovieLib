@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -52,12 +53,13 @@ namespace MovieLib
 
         private async Task loggingIn()
         {
+            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+                return;
             IAuthenticationRepository rep = new AuthenticationRepository();
-            
-            Admin? admin = await rep.LoginAdmin(Username, Password);
+            Admin? admin = await Task.Run(()=>rep.LoginAdmin(Username, Password));
             if (admin is null)
             {
-                User? user = await rep.LoginUser(Username, Password);
+                User? user = await Task.Run(()=>rep.LoginUser(Username, Password));
                 if (user is not null)
                 {
                     _user = user;

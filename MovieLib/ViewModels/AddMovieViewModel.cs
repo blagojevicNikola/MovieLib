@@ -3,6 +3,7 @@ using MovieLib.Commands;
 using MovieLib.Models;
 using MovieLib.Repositories.Impl;
 using MovieLib.Repositories.Interfaces;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -60,22 +61,33 @@ namespace MovieLib
             {
                 publishedTime = DateTime.ParseExact(PublishDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             }
+            if (string.IsNullOrEmpty(Title) || string.IsNullOrEmpty(Director))
+            {
+                MessageBox.Show("Title/Director is empty!");
+                return;
+            }
             Movie newMovie = new Movie(null, Title, Director, Description, publishedTime, Uri, new decimal(0.0));
             IMovieRepository rep = new MovieRepository();
             List<MovieType> selectedTypes = AllTypes.Where(s => s.Selected == true).ToList();
-            if(_admin.Id.HasValue)
+            try
             {
-                int adminId = _admin.Id.Value;
-                if(rep.Create(newMovie, adminId, selectedTypes) is not null)
+                if (_admin.Id.HasValue)
                 {
-                    BackToMoviesCommand.Execute(null);
-                    return;
+                    int adminId = _admin.Id.Value;
+                    if (rep.Create(newMovie, adminId, selectedTypes) is not null)
+                    {
+                        BackToMoviesCommand.Execute(null);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Movie was not created succesfully!");
+                        return;
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Error while adding!");
-                    return;
-                }
+            }catch(MySqlException)
+            {
+                MessageBox.Show("Error while adding movie!");
             }
         }
 

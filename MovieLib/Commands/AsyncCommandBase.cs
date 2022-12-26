@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -29,12 +31,12 @@ namespace MovieLib
             IsExecuting = true;
             try
             {
-
-            }catch(Exception ex)
+                await ExecuteAsync(parameter);
+            }
+            catch(Exception ex)
             {
                 _onException.Invoke(ex);
             }
-            await ExecuteAsync(parameter);
             IsExecuting = false;
         }
 

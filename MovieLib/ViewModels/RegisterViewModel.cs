@@ -3,11 +3,6 @@ using MovieLib.Models;
 using MovieLib.Repositories.Impl;
 using MovieLib.Repositories.Interfaces;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -37,16 +32,16 @@ namespace MovieLib
             Surname = "";
             _navigationStore = navigationStore;
             BackToLoginCommand = new NavigateCommand<LoginViewModel>(navigationStore, () => new LoginViewModel(navigationStore));
-            RegisterCommand = new RelyCommand(register);
+            RegisterCommand = new AsyncRelayCommand(register, (ex) => { MessageBox.Show("Error while registrating!"); });
         }
 
-        public void register()
+        public async Task register()
         {
             IAuthenticationRepository authRep = new AuthenticationRepository();
             User? user = null;
             try
             {
-                user = authRep.RegisterUser(new User(null, Name, Surname, Username, false, "", ""), Password);
+                user = await Task.Run(()=>authRep.RegisterUser(new User(null, Name, Surname, Username, false, "", ""), Password));
                 if (user == null) { return; }
                 ICommand ToUserViewCommand = new NavigateCommand<UserMainViewModel>(_navigationStore, () =>
                 {

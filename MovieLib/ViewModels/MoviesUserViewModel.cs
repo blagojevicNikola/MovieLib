@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MovieLib
@@ -70,32 +71,46 @@ namespace MovieLib
         private void getSpecificType(MovieType type)
         {
             IMovieRepository movieRep = new MovieRepository();
-            if(ByName)
+            try
             {
-                Movies = (ObservableCollection<Movie>)movieRep.GetAllOfType(type.Id, _user.Id!.Value, "Title");
-            } else if(Popular)
+                if (ByName)
+                {
+                    Movies = (ObservableCollection<Movie>)movieRep.GetAllOfType(type.Id, _user.Id!.Value, "Title");
+                }
+                else if (Popular)
+                {
+                    Movies = (ObservableCollection<Movie>)movieRep.GetAllOfType(type.Id, _user.Id!.Value, "Rating");
+                }
+                else
+                {
+                    Movies = (ObservableCollection<Movie>)movieRep.GetAllOfType(type.Id, _user.Id!.Value, "PublishDate");
+                }
+            }catch(MySqlException)
             {
-                Movies = (ObservableCollection<Movie>)movieRep.GetAllOfType(type.Id, _user.Id!.Value, "Rating");
-            }else
-            {
-                Movies = (ObservableCollection<Movie>)movieRep.GetAllOfType(type.Id, _user.Id!.Value, "PublishDate");
+                MessageBox.Show("Error while loading!");
             }
         }
 
         private void getAllMovies()
         {
             IMovieRepository movieRep = new MovieRepository();
-            if (ByName)
+            try
             {
-                Movies = (ObservableCollection<Movie>)movieRep.GetAllOutsidePlaylist(_user.Id!.Value, "Title");
-            }
-            else if (Popular)
+                if (ByName)
+                {
+                    Movies = (ObservableCollection<Movie>)movieRep.GetAllOutsidePlaylist(_user.Id!.Value, "Title");
+                }
+                else if (Popular)
+                {
+                    Movies = (ObservableCollection<Movie>)movieRep.GetAllOutsidePlaylist(_user.Id!.Value, "Rating");
+                }
+                else
+                {
+                    Movies = (ObservableCollection<Movie>)movieRep.GetAllOutsidePlaylist(_user.Id!.Value, "PublishDate");
+                }
+            }catch(MySqlException)
             {
-                Movies = (ObservableCollection<Movie>)movieRep.GetAllOutsidePlaylist(_user.Id!.Value, "Rating");
-            }
-            else
-            {
-                Movies = (ObservableCollection<Movie>)movieRep.GetAllOutsidePlaylist(_user.Id!.Value, "PublishDate");
+                MessageBox.Show("Error while loading!");
             }
         }
 
