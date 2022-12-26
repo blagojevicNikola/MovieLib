@@ -128,7 +128,7 @@ namespace MovieLib
         private void orderByPopularity()
         {
             ObservableCollection<Movie> newList = new ObservableCollection<Movie>();
-            var ordered = Movies.ToList().OrderBy(s => s.Rating).Reverse();
+            var ordered = Movies.ToList().OrderBy(s => decimal.Parse(s.Rating)).Reverse();
             foreach (var movie in ordered)
             {
                 newList.Add(movie);

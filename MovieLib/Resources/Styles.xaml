@@ -139,7 +139,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">
-                <Setter Property="BorderBrush" Value="LightBlue"/>
+                <Setter Property="BorderBrush" Value="CornflowerBlue"/>
             </Trigger>
         </Style.Triggers>
     </Style>
