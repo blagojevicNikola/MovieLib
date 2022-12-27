@@ -59,7 +59,14 @@ namespace MovieLib
                 }
             }catch(MySqlException)
             {
-                MessageBox.Show("Cannot post the review!");
+                if(_user.Language.Equals("en"))
+                {
+                    MessageBox.Show("Cannot post the review!");
+                }
+                else
+                {
+                    MessageBox.Show("Nije moguće postaviti recenziju!");
+                }
             }
             
         }

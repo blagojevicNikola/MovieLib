@@ -62,7 +62,8 @@ namespace MovieLib.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            RadioButton_Checked(sender, e);
+            RadioButton_Checked_2(sender, e);
         }
 
         private void RadioButton_Checked_4(object sender, RoutedEventArgs e)

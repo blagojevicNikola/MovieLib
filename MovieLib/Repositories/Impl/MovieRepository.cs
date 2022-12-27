@@ -85,10 +85,14 @@ namespace MovieLib.Repositories.Impl
             {
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = conn;
-                command.CommandText = "delete from movie where id=@id";
-                command.Parameters.AddWithValue("@id", id);
                 conn.Open();
+                MySqlTransaction myTransaction = command.Connection.BeginTransaction();
+                command.CommandText = "delete from movie_of_type where Movie_id=@id";
+                command.Parameters.AddWithValue("@id", id);
                 command.ExecuteNonQuery();
+                command.CommandText = "delete from movie where id=@id";
+                command.ExecuteNonQuery();
+                myTransaction.Commit();
                 return true;
             }
         }

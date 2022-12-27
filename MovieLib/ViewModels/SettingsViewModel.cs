@@ -16,7 +16,6 @@ namespace MovieLib
     public class SettingsViewModel : BaseViewModel
     {
         private Person _person;
-
         public string LightDesc { get; } = "Light";
         public string DarkDesc { get; } = "Dark";
         public string CustomDesc { get; } = "Custom";
@@ -84,7 +83,15 @@ namespace MovieLib
                 }
             }catch(MySqlException)
             {
-                MessageBox.Show("Error while updating language preference!");
+                if (_person.Language.Equals("en"))
+                {
+                    MessageBox.Show("Error while updating language preference!");
+                }
+                else
+                {
+                    MessageBox.Show("Greška pri ažuriranju postavki!");
+
+                }
             }
         }
         private void setTheme(string theme)
@@ -117,7 +124,15 @@ namespace MovieLib
                 }
             }catch(MySqlException)
             {
-                MessageBox.Show("Error while updating theme preference!");
+                if(_person.Language.Equals("en"))
+                {
+                    MessageBox.Show("Error while updating theme preference!");
+                }
+                else
+                {
+                    MessageBox.Show("Greška pri ažuriranju postavki!");
+
+                }
             }
         }
     }

@@ -81,13 +81,26 @@ namespace MovieLib
                     }
                     else
                     {
-                        MessageBox.Show("Movie was not created succesfully!");
+                        if(_admin.Language.Equals("en"))
+                        {
+                            MessageBox.Show("Movie was not created succesfully!");
+                        }else
+                        {
+                            MessageBox.Show("Film nije uspješno kreiran!");
+                        }
                         return;
                     }
                 }
             }catch(MySqlException)
             {
-                MessageBox.Show("Error while adding movie!");
+                if (_admin.Language.Equals("en"))
+                {
+                    MessageBox.Show("Error while creating a movie!");
+                }
+                else
+                {
+                    MessageBox.Show("Greška pri kreiranju filma!");
+                }
             }
         }
 

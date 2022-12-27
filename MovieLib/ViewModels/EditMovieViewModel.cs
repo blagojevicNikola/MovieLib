@@ -24,6 +24,7 @@ namespace MovieLib
         private string _director;
         private string _publishDate;
         private string? _uri;
+        private Person _admin;
         public string Title { get { return _title; } set { _title = value; NotifyPropertyChanged("Title"); } }
         public string Director { get { return _director; } set { _director = value; NotifyPropertyChanged("Director"); } }
         public string Description { get { return _description; } set { _description = value; NotifyPropertyChanged("Description"); } }
@@ -38,6 +39,7 @@ namespace MovieLib
         {
             IMovieTypeRepository movieTypeRep = new MovieTypeRepository();
             Movie = movie;
+            _admin = admin;
             Title = Movie.Title;
             Director = Movie.Director;
             Description = Movie.Description;
@@ -59,7 +61,13 @@ namespace MovieLib
             }
             if (string.IsNullOrEmpty(Title) || string.IsNullOrEmpty(Director))
             {
-                MessageBox.Show("Title/Director is empty!");
+                if(_admin.Language.Equals("en"))
+                {
+                    MessageBox.Show("Title/Director is empty!");
+                }else
+                {
+                    MessageBox.Show("Naslov/Direktor nije popunjen!");
+                }
                 return;
             }
             Movie updatedMovie = new Movie(Movie.Id, Title, Director, Description, published, Uri, decimal.Parse(Movie.Rating));

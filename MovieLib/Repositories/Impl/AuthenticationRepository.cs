@@ -77,7 +77,7 @@ namespace MovieLib.Repositories.Impl
                 var reader = await command.ExecuteReaderAsync();
                 if (reader.Read())
                 {
-                    return new User(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7));
+                    return new User(reader.GetInt32(0), reader.GetString(3), reader.GetString(4), reader.GetString(1), reader.GetBoolean(5), reader.GetString(6), reader.GetString(7));
                 }
                 return null;
             }
